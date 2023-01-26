@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LocationsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Carbon\Carbon as Carbon;
@@ -22,14 +23,25 @@ use Carbon\Carbon as Carbon;
 Route::get('/', function () {
     // $dateOfBirth = '1987-09-09';
     // $years = Carbon::parse($dateOfBirth)->age;
-
     $res       = [];
-    // $res['name'] = 'Roman Matvii';
     // $res['dob_years'] = $years;
     // $res['dob_date'] = str_replace('-', ' ', $dateOfBirth);
 
     return view('auth/register', $res);
 });
+
+//! locations
+Route::get('/locations','App\Http\Controllers\LocationsController@index')->middleware(['auth', 'verified'])->name('locations');
+Route::get('/locations/create','App\Http\Controllers\LocationsController@create')->middleware(['auth', 'verified'])->name('locations.create');
+Route::post('/locationsaction','App\Http\Controllers\LocationsController@storeDevice')->middleware(['auth', 'verified']);
+
+
+// Route::get('/locations/create', 'App\Http\Controllers\LocationsController@create')->name('locations.create', function () {
+//     return view('test');
+//     // return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('locations.create');
+
+
 
 //! admin page
 Route::get('dashboard', function () {
