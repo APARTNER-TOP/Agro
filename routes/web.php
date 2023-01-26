@@ -4,6 +4,7 @@ use App\Http\Controllers\LocationsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Carbon\Carbon as Carbon;
+use App\Models\Location as Location;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,11 @@ Route::post('/locationsaction','App\Http\Controllers\LocationsController@storeDe
 
 //! admin page
 Route::get('dashboard', function () {
-    return view('test');
+
+    // $locations = Location::all();
+    $locations = Location::all()->where('user_id' ,'=', Auth::user()->id);
+
+    return view('test', compact('locations'));
     // return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
