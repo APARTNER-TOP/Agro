@@ -20,7 +20,9 @@
             <div class="mt-4">
                 <x-input-label for="name" :value="__('Company name')" />
                 <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus oninvalid="invalidMsg(this);" />
+                @if ($errors->has('name'))
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                @endif
             </div>
 
             <!-- Email Address -->
@@ -29,7 +31,9 @@
 
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required oninvalid="invalidMsg(this);" />
 
+                @if ($errors->has('email'))
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                @endif
             </div>
 
             <!-- Password -->
@@ -41,7 +45,9 @@
                                 name="password"
                                 required autocomplete="new-password" oninvalid="invalidMsg(this);" />
 
+                @if ($errors->has('password'))
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                @endif
             </div>
 
             <!-- Confirm Password -->
@@ -52,7 +58,9 @@
                                 type="password"
                                 name="password_confirmation" required oninvalid="invalidMsg(this);" />
 
+                @if ($errors->has('password_confirmation'))
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                @endif
             </div>
 
             <div class="flex items-center justify-end mt-4">
@@ -68,4 +76,4 @@
     </x-auth-card>
 </x-guest-layout>
 
-@include('components.script');
+@include 'components.script';
