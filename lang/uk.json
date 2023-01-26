@@ -23,5 +23,6 @@
     "requiredMessage": "Будь ласка, заповніть це поле",
     "Profile": "Профіль",
     "Log Out": "Вийти",
-    "You're logged in!": "Ви увійшли!"
+    "You're logged in!": "Ви увійшли!",
+    "Save": "Зберегти"
 }
