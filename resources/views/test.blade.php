@@ -12,22 +12,23 @@
 </head>
 
 <body>
+    <!-- <div class="container">
+        {{ Auth::user() }}
 
-    {{ Auth::user() }}
+        <br>
+        {{ __("You're logged in!") }}
+        <br>
+    </div> -->
 
-    <br>
-    <br>
-    {{ __("You're logged in!") }}
-    <br>
 
     <div class="container">
         <div class="row11">
-            <div class="col-xl-6">
+            <div class="col-xl-6" id="location_create">
                 <p>Оберіть Ваші Локації для торгівлі:</p>
                 <ul id="location_type">
                     @foreach ($locationsType as $locationType)
-                    <li data-id="{{ $locationType->id}}"> {{ $locationType->name}}
-                        <p>(піктограма будинку)</p>
+                    <li data-id="{{ $locationType->id}}">
+                        <img src="/img/locations/{{ $locationType->id}}.png" alt="img" width="20" height="20" /> {{ $locationType->name}}
                     </li>
                     @endforeach
                 </ul>
@@ -35,28 +36,28 @@
             <div class="col-6">
                 <form method="POST" action="{{ route('locationsaction') }}" class="location_save d-none" id="location_save">
                     @csrf
-
                     <div class="mt-4">
                         <div>
-                            <x-text-input id="type_id" class="type_id block mt-1 w-full" type="hidden" name="type_id" :value="old('name')" required autofocus oninvalid="invalidMsg(this);" />
-                            @if ($errors->has('name'))
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                            @endif
+                            <x-text-input id="type_id" class="type_id block mt-1 w-full" type="hidden" name="type_id" required autofocus oninvalid="invalidMsg(this);" />
                         </div>
                         <div>
                             <x-input-label for="name" :value="__('ВАШ')" class="storage" />
-                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus oninvalid="invalidMsg(this);" />
+                            <br>
+                            {{ Auth::user()->name }}
+                            <x-text-input id="name" class="block mt-1 w-full d-none" type="text" name="name" value="{{ Auth::user()->name }}" required autofocus oninvalid="invalidMsg(this);" />
                             @if ($errors->has('name'))
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                             @endif
                         </div>
                         <div>
-                            <x-input-label for="name" :value="__('Держава. Місто / Село / Вулиця')" />
+                            <x-input-label for="address" :value="__('Держава. Місто / Село / Вулиця')" />
                             <br>
-                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus oninvalid="invalidMsg(this);" />
-                            @if ($errors->has('name'))
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" required autofocus oninvalid="invalidMsg(this);" />
+                            @if ($errors->has('address'))
+                            <x-input-error :messages="$errors->get('address')" class="mt-2" />
                             @endif
+                            <br>
+                            <a href="">переглянути на карті</a>
                         </div>
 
                     </div>
@@ -76,12 +77,20 @@
         </div>
     </div>
 
+    <br>
 
     <div class="container">
         <h1>Ваші локації</h1>
 
+        <p>{{ request()->has('save') == 1 ? __('Локацію збереженно') : '' }}</p>
+
         @foreach ($locations as $location)
-        <li> {{ $location}} </li>
+        <li class="mt-1">
+            <img src="/img/locations/{{ $location->type_id}}.png" alt="img" width="20" height="20" />
+            {{ __('Компанія') }}: {{ $location->company }}
+            {{ __('Адрес') }}: {{ $location->address }}
+            <a href="/dashboard/locations/delete?id={{ $location->id }}" class="btn btn-danger">{{ __('Delete') }}</a>
+        </li>
         @endforeach
     </div>
 
@@ -102,6 +111,92 @@
 
         });
     </script>
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initAutocomplete&libraries=places&v=weekly" defer></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly" defer></script> -->
+
+    <script>
+    /* The addressAutocomplete takes a container element (div) as a parameter */
+        function addressAutocomplete(containerElement) {
+            // create input element
+            var inputElement = document.createElement("input");
+            inputElement.setAttribute("type", "text");
+            inputElement.setAttribute("placeholder", "Enter an address here");
+            containerElement.appendChild(inputElement);
+
+            /* Current autocomplete items data (GeoJSON.Feature) */
+            var currentItems;
+
+            /* Active request promise reject function. To be able to cancel the promise when a new request comes */
+            var currentPromiseReject;
+
+            /* Execute a function when someone writes in the text field: */
+            inputElement.addEventListener("input", function(e) {
+                var currentValue = this.value;
+
+                /* Close any already open dropdown list */
+                closeDropDownList();
+
+                // Cancel previous request promise
+                if (currentPromiseReject) {
+                    currentPromiseReject({
+                        canceled: true
+                    });
+                }
+
+                /* Create a new promise and send geocoding request */
+                var promise = new Promise((resolve, reject) => {
+                    currentPromiseReject = reject;
+
+                    var apiKey = "47f523a46b944b47862e39509a7833a9";
+                    var url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(currentValue)}&limit=5&apiKey=${apiKey}`;
+
+                    fetch(url)
+                        .then(response => {
+                            // check if the call was successful
+                            if (response.ok) {
+                                response.json().then(data => resolve(data));
+                            } else {
+                                response.json().then(data => reject(data));
+                            }
+                        });
+                });
+
+                promise.then((data) => {
+                    currentItems = data.features;
+
+                    /*create a DIV element that will contain the items (values):*/
+                    var autocompleteItemsElement = document.createElement("div");
+                    autocompleteItemsElement.setAttribute("class", "autocomplete-items");
+                    containerElement.appendChild(autocompleteItemsElement);
+
+                    /* For each item in the results */
+                    data.features.forEach((feature, index) => {
+                        /* Create a DIV element for each element: */
+                        var itemElement = document.createElement("DIV");
+                        /* Set formatted address as item value */
+                        itemElement.innerHTML = feature.properties.formatted;
+                        autocompleteItemsElement.appendChild(itemElement);
+                    });
+                }, (err) => {
+                    if (!err.canceled) {
+                        console.log(err);
+                    }
+                });
+            });
+
+            function closeDropDownList() {
+                var autocompleteItemsElement = containerElement.querySelector(".autocomplete-items");
+                if (autocompleteItemsElement) {
+                    containerElement.removeChild(autocompleteItemsElement);
+                }
+            }
+        }
+
+        addressAutocomplete(document.getElementById("address"));
+    </script>
+
+    @include('components.script')
 </body>
 
 </html>
