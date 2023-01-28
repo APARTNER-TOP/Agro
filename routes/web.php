@@ -57,6 +57,8 @@ Route::get('/dashboard/locations','App\Http\Controllers\LocationsController@inde
 
 Route::get('/dashboard/locations/create','App\Http\Controllers\LocationsController@create')->middleware(['auth', 'verified'])->name('locations.create');
 
+Route::get('/dashboard/locations/edit','App\Http\Controllers\LocationsController@edit')->middleware(['auth', 'verified'])->name('locations.edit');
+
 Route::get('/dashboard/locations/delete','App\Http\Controllers\LocationsController@delete')->middleware(['auth', 'verified'])->name('locations.delete');
 
 Route::post('/dashboard/locationsaction','App\Http\Controllers\LocationsController@storeLocation')->middleware(['auth', 'verified'])->name('locationsaction');
