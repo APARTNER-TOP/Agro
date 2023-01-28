@@ -31,11 +31,6 @@ Route::get('/', function () {
     return view('auth/register', $res);
 });
 
-//! locations
-Route::get('/locations','App\Http\Controllers\LocationsController@index')->middleware(['auth', 'verified'])->name('locations');
-Route::get('/locations/create','App\Http\Controllers\LocationsController@create')->middleware(['auth', 'verified'])->name('locations.create');
-Route::post('/locationsaction','App\Http\Controllers\LocationsController@storeDevice')->middleware(['auth', 'verified']);
-
 
 // Route::get('/locations/create', 'App\Http\Controllers\LocationsController@create')->name('locations.create', function () {
 //     return view('test');
@@ -49,10 +44,16 @@ Route::get('dashboard', function () {
 
     // $locations = Location::all();
     $locations = Location::all()->where('user_id' ,'=', Auth::user()->id);
+    $locationsType = DB::table('locations_type')->get();
 
-    return view('test', compact('locations'));
+    return view('test', compact('locations', 'locationsType'));
     // return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+//! Admin locations page
+Route::get('/locations','App\Http\Controllers\LocationsController@index')->middleware(['auth', 'verified'])->name('locations');
+Route::get('/locations/create','App\Http\Controllers\LocationsController@create')->middleware(['auth', 'verified'])->name('locations.create');
+Route::post('/locationsaction','App\Http\Controllers\LocationsController@storeDevice')->middleware(['auth', 'verified'])->name('locationsaction');;
 
 
 //! settings page
