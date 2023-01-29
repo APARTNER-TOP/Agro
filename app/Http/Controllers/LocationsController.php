@@ -14,7 +14,6 @@ class LocationsController extends Controller
 {
     public function index()
     {
-
         // $locations = Location::all();
         $locations = Location::select('*')->orderBy('id')->where('user_id', '=', Auth::user()->id)->get('id');
 
@@ -26,10 +25,13 @@ class LocationsController extends Controller
         return view('locations.create');
     }
 
-    public function storeLocation()
+    public function storeOrUpdate()
     {
-
         $locations = new Location();
+
+        if (request('id')) {
+            $locations->id = request('id');
+        }
         $locations->type_id = request('type_id');
         $locations->user_id = Auth::user()->id;
         $locations->company = Auth::user()->name;
@@ -39,19 +41,44 @@ class LocationsController extends Controller
         $locations->long = request('long') ?? 'long';
         // $locations->description = request('description');
 
-        $insert = false;
+        if ($locations->id) {
+            DB::table('locations')
+            ->where('id', $locations->id)
+                ->update(
+                    [
+                        'company' => $locations->company,
+                        'address' => $locations->address
+                    ]
+                );
 
-        if ($locations->save()) {
-            $insert = true;
+            $update = false;
+
+            if ($update) {
+                $update = true;
+            }
+
+            return redirect('/dashboard?save=' . $update . '&type_id=' . request('type_id'));
+        } else {
+            $insert = false;
+
+            if ($locations->save()) {
+                $insert = true;
+            }
+
+            return redirect('/dashboard?save=' . $insert . '&type_id=' . request('type_id'));
         }
+    }
 
-        return redirect('/dashboard?save=' . $insert . '&type_id=' . request('type_id'));
+    public function edit() {
+        $id = request()->get('id');
+        $location = DB::table('locations')->where(['user_id' => Auth::user()->id, 'id' => $id])->first();
+
+        return view('locations.edit', compact('location'));
     }
 
     public function delete()
     {
         $id = request()->get('id');
-
         $success = false;
 
         if (DB::table('locations')->where(['user_id' => Auth::user()->id, 'id' => $id])->delete()) {

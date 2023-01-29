@@ -41,6 +41,7 @@ Route::get('/', function () {
 
 //! admin page
 Route::get('dashboard', function () {
+    // \App::setLocale('en');
 
     // $locations = Location::all();
     $locations = Location::select('id', 'type_id', 'company', 'address', 'lat', 'long')->where('user_id' ,'=', Auth::user()->id)->get();
@@ -61,7 +62,9 @@ Route::get('/dashboard/locations/edit','App\Http\Controllers\LocationsController
 
 Route::get('/dashboard/locations/delete','App\Http\Controllers\LocationsController@delete')->middleware(['auth', 'verified'])->name('locations.delete');
 
-Route::post('/dashboard/locationsaction','App\Http\Controllers\LocationsController@storeLocation')->middleware(['auth', 'verified'])->name('locationsaction');
+Route::post('/dashboard/locations/update','App\Http\Controllers\LocationsController@storeOrUpdate')->middleware(['auth', 'verified'])->name('locations.update');
+
+Route::post('/dashboard/locations/action','App\Http\Controllers\LocationsController@storeOrUpdate')->middleware(['auth', 'verified'])->name('locations.action');
 
 
 //! settings page
