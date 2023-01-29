@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('address');
             // $table->text('description');
             $table->text('lat');
-            $table->text('long');
+            $table->text('lon');
             $table->timestamps();
         });
     }

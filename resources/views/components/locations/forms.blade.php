@@ -52,6 +52,9 @@
         @endif
 
         <input name="type_id" type="hidden" id="type_id" class="type_id" @if(request()->has('id')) value="{{ $location->type_id }}" @endif required />
+
+        <input name="lat" type="hidden" id="map_lat" class="map_lat" @if(request()->has('id')) value="{{ $location->lat }}" @endif required />
+        <input name="lon" type="hidden" id="map_lon" class="map_lon" @if(request()->has('id')) value="{{ $location->lon }}" @endif required />
     </div>
     <div>
         <x-input-label for="name" :value="__('ВАШ')" class="storage" />

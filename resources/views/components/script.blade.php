@@ -91,6 +91,11 @@
                     var itemElement = document.createElement('div');
                     /* Set formatted address as item value */
                     itemElement.innerHTML = feature.properties.formatted;
+
+                    //! set coordinate on data
+                    itemElement.setAttribute('data-lat', feature.properties.lat);
+                    itemElement.setAttribute('data-lon', feature.properties.lon);
+
                     autocompleteItemsElement.appendChild(itemElement);
                 });
             }, (err) => {
@@ -120,6 +125,9 @@
         address = address.replaceAll(',', '');
 
         $('#map_link').attr('href', 'https://www.google.com/maps/place/' + address);
+
+        $('#map_lat').val($(this).data('lat'));
+        $('#map_lon').val($(this).data('lon'));
     });
 
     //! click #address input
@@ -143,7 +151,7 @@
         if($('#address input').val().length <= 2) {
             $('#map_link').addClass('d-none');
         } else {
-            $('#map_link').addClass('d-block').removeClass('d-none');
+            // $('#map_link').addClass('d-block').removeClass('d-none');
         }
     @endif
 </script>
