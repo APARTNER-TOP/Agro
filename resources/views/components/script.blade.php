@@ -116,7 +116,8 @@
         $('#address input').val(address);
         $('.autocomplete-items').remove();
 
-        address = address.replaceAll(' ', '');
+        address = address.replaceAll(' ', '+');
+        address = address.replaceAll(',', '');
 
         $('#map_link').attr('href', 'https://www.google.com/maps/place/' + address);
     });
@@ -126,7 +127,8 @@
         $('#map_link').addClass('d-block').removeClass('d-none');
 
         var address = $(this).val();
-        address = address.replaceAll(' ', '');
+        address = address.replaceAll(' ', '+');
+        address = address.replaceAll(',', '');
 
         $('#map_link').attr('href', 'https://www.google.com/maps/place/' + address);
 
