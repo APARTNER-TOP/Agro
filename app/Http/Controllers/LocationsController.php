@@ -20,6 +20,22 @@ class LocationsController extends Controller
         return view('locations.index', compact('locations'));
     }
 
+    public function map() {
+        $longitude = $latitude = $address = false;
+
+        if (request('address') || request('submit_address')) {
+            $address = request('address');
+            $address = str_replace(" ", "+", $address);
+        }
+
+        if (request('latitude') && request('longitude') || request('submit_coordinates')) {
+            $latitude = request('latitude');
+            $longitude = request('longitude');
+        }
+
+        return view('locations.map', compact('address', 'latitude', 'longitude'));
+    }
+
     public function create()
     {
         return view('locations.create');
@@ -37,7 +53,7 @@ class LocationsController extends Controller
         $locations->company = Auth::user()->name;
         $locations->address = request('address');
 
-        $locations->lat = request('lat') ?? 'lat';
+        $locations->lat = request('lat') ?? 'lat112';
         $locations->long = request('long') ?? 'long';
         // $locations->description = request('description');
 

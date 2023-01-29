@@ -5,16 +5,16 @@
 </head>
 <body>
 
-<h1>All Information About Devices</h1>
+<h1>All Information About Locations</h1>
 
 @foreach ($locations as $location)
 <li> {{ $location}}  </li>
 @endforeach
 
-<h1>Only Names Of Devices</h1>
+<h1>Locations</h1>
 
 @foreach ($locations as $location)
-<li> {{ $location->name}}  </li>
+<li> {{ $location->company }} : {{ $location->address }} </li>
 @endforeach
 
 </body>

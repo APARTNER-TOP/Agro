@@ -56,6 +56,8 @@ Route::get('dashboard', function () {
 //! Admin locations page
 Route::get('/dashboard/locations','App\Http\Controllers\LocationsController@index')->middleware(['auth', 'verified'])->name('locations');
 
+Route::get('/dashboard/locations/map','App\Http\Controllers\LocationsController@map')->middleware(['auth', 'verified'])->name('locations/map');
+
 Route::get('/dashboard/locations/create','App\Http\Controllers\LocationsController@create')->middleware(['auth', 'verified'])->name('locations.create');
 
 Route::get('/dashboard/locations/edit','App\Http\Controllers\LocationsController@edit')->middleware(['auth', 'verified'])->name('locations.edit');
