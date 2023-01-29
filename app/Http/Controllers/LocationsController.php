@@ -53,8 +53,8 @@ class LocationsController extends Controller
         $locations->company = Auth::user()->name;
         $locations->address = request('address');
 
-        $locations->lat = request('lat') ?? 'lat112';
-        $locations->long = request('long') ?? 'long';
+        $locations->lat = request('lat') ?? false;
+        $locations->lon = request('lon') ?? false;
         // $locations->description = request('description');
 
         if ($locations->id) {
@@ -63,7 +63,9 @@ class LocationsController extends Controller
                 ->update(
                     [
                         'company' => $locations->company,
-                        'address' => $locations->address
+                        'address' => $locations->address,
+                        'lat' => $locations->lat,
+                        'lon' => $locations->lon
                     ]
                 );
 
