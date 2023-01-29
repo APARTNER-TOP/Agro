@@ -42,7 +42,7 @@
                     {{ __('Cancel') }}
                         </a> -->
 
-                        <x-primary-button class="ml-4" style="color: #000 !important">
+                        <x-primary-button class="ml-4 btn btn-success"  aria-disabled="true">
                             {{ __('Save') }}
                         </x-primary-button>
                     </div>

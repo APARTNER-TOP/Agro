@@ -2,7 +2,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
 <script>
     var requiredMessage = "{{ __('contents.requiredMessage')}}";
     var typeMismatchMessage = "{{ __('contents.mismatchMessage')}}"
@@ -115,6 +114,15 @@
 
     addressAutocomplete(document.getElementById('address'));
 
+    //! disable btn send form
+    // $('#location_save').change(function() {
+
+        console.log($('#map_lat').val() == '' && $('#map_lon').val() == '' );
+
+
+        $('#map_lat').val() == '' && $('#map_lon').val() == '' ? $('#location_save button').addClass('disabled') : $('#location_save button').removeClass('disabled');
+    // });
+
     //! click .autocomplete-items div
     $('body').on('click', '.autocomplete-items div', function() {
         var address = $(this).text();
@@ -128,6 +136,8 @@
 
         $('#map_lat').val($(this).data('lat'));
         $('#map_lon').val($(this).data('lon'));
+
+        $('#map_lat').val() == '' && $('#map_lon').val() == '' ? $('#location_save button').addClass('disabled') : $('#location_save button').removeClass('disabled');
     });
 
     //! click #address input
@@ -143,6 +153,13 @@
         if($('#address input').val().length <= 2) {
             $('#map_link').addClass('d-none');
         }
+
+        if(!address) {
+            $('#map_lat').val('');
+            $('#map_lon').val('');
+        }
+
+        $('#map_lat').val() == '' && $('#map_lon').val() == '' ? $('#location_save button').addClass('disabled') : $('#location_save button').removeClass('disabled');
     });
 
     @if(request()->has('id'))
