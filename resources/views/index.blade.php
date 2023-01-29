@@ -36,32 +36,6 @@
 <!-- Wrapper All -->
 <div class="RM_fn_wrapper">
 
-	<!-- MODALBOX -->
-	<div class="RM_fn_modalbox">
-		<a class="extra_closer" href="#"></a>
-		<div class="box_inner">
-			<a class="closer" href="#"><span></span></a>
-			<div class="modal_content">
-
-				<div class="modal_in">
-					<!-- Content comes from JS -->
-				</div>
-
-				<div class="fn__nav" data-from="" data-index="">
-					<a href="#" class="prev">
-						<span class="text">Prev</span>
-						<span class="arrow_wrapper"><span class="arrow"></span></span>
-					</a>
-					<a href="#" class="next">
-						<span class="text">Next</span>
-						<span class="arrow_wrapper"><span class="arrow"></span></span>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /MODALBOX -->
-
 	<div class="RM_fn_content">
 
 		<!-- Main Left Part -->
@@ -195,26 +169,6 @@
 												<li>
 													<div class="item">
 														<div class="item_top">
-															<h5>Frenify  LLC</h5>
-															<span>( 2018 — Today )</span>
-														</div>
-														<h3>Sr. Front-end Engineer</h3>
-														<p>Adipisicing Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-													</div>
-												</li>
-												<li>
-													<div class="item">
-														<div class="item_top">
-															<h5>Google  LLC</h5>
-															<span>( 2016 — 2018 )</span>
-														</div>
-														<h3>Front-end Developer</h3>
-														<p>Adipisicing Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-													</div>
-												</li>
-												<li>
-													<div class="item">
-														<div class="item_top">
 															<h5>Twitter  LLC</h5>
 															<span>( 2016 — 2011 )</span>
 														</div>
@@ -255,16 +209,6 @@
 														<p>Adipisicing Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 													</div>
 												</li>
-												<li>
-													<div class="item">
-														<div class="item_top">
-															<h5>Clolumbia College</h5>
-															<span>( 2007 — 2011 )</span>
-														</div>
-														<h3>Bachelor Degree</h3>
-														<p>Adipisicing Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-													</div>
-												</li>
 											</ul>
 										</div>
 										<!-- /Boxed List -->
@@ -277,14 +221,6 @@
 
 										<!-- Progress Bar -->
 										<div class="RM_fn_progress_bar">
-
-											<div class="progress_item" data-value="55">
-												<div class="item_in">
-													<h3 class="progress_title">Laravel</h3>
-													<span class="progress_percent"></span>
-													<div class="bg_wrap"><div class="progress_bg"></div></div>
-												</div>
-											</div>
 
 											<div class="progress_item" data-value="95">
 												<div class="item_in">
@@ -310,30 +246,8 @@
 												</div>
 											</div>
 
-											<div class="progress_item" data-value="85">
-												<div class="item_in">
-													<h3 class="progress_title">Adobe Illustrator</h3>
-													<span class="progress_percent"></span>
-													<div class="bg_wrap"><div class="progress_bg"></div></div>
-												</div>
-											</div>
-
-                                            <div class="progress_item" data-value="92">
-												<div class="item_in">
-													<h3 class="progress_title">Adobe Photoshop</h3>
-													<span class="progress_percent"></span>
-													<div class="bg_wrap"><div class="progress_bg"></div></div>
-												</div>
-											</div>
-
 										</div>
 										<!-- /Progress Bar -->
-
-										<!-- Description -->
-										<div class="RM_fn_desc">
-											<p>A freelance creative designer with a love for minimal design, clean typography and well-written code, located in Lviv, Ukraine. Provide high quality and cost effective offshore web and software development services. Wide range of web and software development services across the world.</p>
-										</div>
-
 									</div>
 									<!-- /#2 tab content -->
 
@@ -388,9 +302,8 @@
 											<img src="img/thumb/square.jpg" alt="">
 											<div class="abs_img" data-bg-img="img/portfolio/1.jpg"></div>
 										</div>
-										<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-										<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-										<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
+
+
 									</div>
 								</div>
 								<div class="item modal_item" data-index="2">
@@ -405,13 +318,7 @@
 									<div class="fn__hidden">
 										<p class="fn__cat">web, mobile, online</p>
 										<h3 class="fn__title">Delicious Fruit</h3>
-										<div class="img_holder">
-											<img src="img/thumb/square.jpg" alt="">
-											<div class="abs_img" data-bg-img="img/portfolio/2.jpg"></div>
-										</div>
-										<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-										<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-										<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
+
 									</div>
 								</div>
 								<div class="item modal_item" data-index="3">
@@ -430,9 +337,7 @@
 											<img src="img/thumb/square.jpg" alt="">
 											<div class="abs_img" data-bg-img="img/portfolio/3.jpg"></div>
 										</div>
-										<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-										<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-										<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
+
 									</div>
 								</div>
 								<div class="item modal_item" data-index="4">
@@ -451,9 +356,7 @@
 											<img src="img/thumb/square.jpg" alt="">
 											<div class="abs_img" data-bg-img="img/portfolio/4.jpg"></div>
 										</div>
-										<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-										<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-										<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
+
 									</div>
 								</div>
 								<div class="item modal_item" data-index="5">
@@ -472,9 +375,7 @@
 											<img src="img/thumb/square.jpg" alt="">
 											<div class="abs_img" data-bg-img="img/portfolio/5.jpg"></div>
 										</div>
-										<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-										<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-										<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
+
 									</div>
 								</div>
 							</div>
@@ -656,9 +557,7 @@
 													<img src="img/thumb/square.jpg" alt="">
 													<div class="abs_img" data-bg-img="img/blog/1.jpg"></div>
 												</div>
-												<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-												<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-												<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
+
 											</div>
 										</div>
 									</li>
@@ -679,9 +578,6 @@
 													<img src="img/thumb/square.jpg" alt="">
 													<div class="abs_img" data-bg-img="img/blog/2.jpg"></div>
 												</div>
-												<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-												<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-												<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
 											</div>
 										</div>
 									</li>
@@ -702,9 +598,6 @@
 													<img src="img/thumb/square.jpg" alt="">
 													<div class="abs_img" data-bg-img="img/blog/3.jpg"></div>
 												</div>
-												<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-												<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-												<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
 											</div>
 										</div>
 									</li>
@@ -725,9 +618,6 @@
 													<img src="img/thumb/square.jpg" alt="">
 													<div class="abs_img" data-bg-img="img/blog/4.jpg"></div>
 												</div>
-												<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-												<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-												<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
 											</div>
 										</div>
 									</li>
@@ -748,9 +638,6 @@
 													<img src="img/thumb/square.jpg" alt="">
 													<div class="abs_img" data-bg-img="img/blog/5.jpg"></div>
 												</div>
-												<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-												<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-												<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
 											</div>
 										</div>
 									</li>
@@ -771,9 +658,6 @@
 													<img src="img/thumb/square.jpg" alt="">
 													<div class="abs_img" data-bg-img="img/blog/6.jpg"></div>
 												</div>
-												<p class="fn__desc">Sed ornare tellus a odio bibendum, at tristique sapien malesuada. Proin sagittis maximus accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida quam sit amet elit varius tempor. Pellentesque purus eros, blandit eu mollis vel, commodo eget orci. Proin vel hendrerit ex. Vivamus ut ex at nunc consectetur efficitur ut quis est. Proin posuere orci eget vulputate fringilla. Curabitur placerat massa eget efficitur cursus. Sed sollicitudin rhoncus blandit. Nam accumsan vestibulum enim. Sed rutrum eu leo pellentesque lobortis. Integer ornare fringilla arcu, eu mattis risus convallis in.</p>
-												<p class="fn__desc">Quisque dui metus, eleifend at enim ac, imperdiet sagittis dolor. Vestibulum ipsum quam, feugiat non velit sit amet, pulvinar varius nisl. Mauris tristique, ipsum sit amet lacinia congue, mauris magna tempus nibh, in mollis eros enim a tortor. Morbi enim arcu, tristique vitae mi nec, hendrerit pharetra metus. Phasellus id feugiat purus. In vel elit eu lacus ultrices feugiat. Etiam at aliquet mi. Nunc sit amet libero sit amet lectus pellentesque sagittis. Curabitur blandit ante quis erat dapibus viverra. Maecenas consequat pulvinar pulvinar. Donec in aliquam arcu. Donec eu laoreet dolor. Ut nisi lectus, pulvinar ac mattis quis, pretium ac nulla. Morbi sed ligula ultrices, ornare mauris id, auctor arcu. Sed pellentesque ex sed erat faucibus, ultrices vehicula ex dapibus. Aenean venenatis metus eros, vel faucibus lorem porttitor eu.</p>
-												<p class="fn__desc">Sed porttitor augue erat, vitae convallis odio viverra id. In nec finibus elit. Nullam ac sodales nunc, vel sagittis elit. Ut condimentum ex ipsum, eu ornare odio aliquam eu. Ut iaculis eros quam, eu bibendum tellus convallis quis. Donec sapien risus, consequat ut magna nec, interdum porta nisl. Vivamus pulvinar hendrerit finibus. Nunc molestie lacinia risus, id mattis nunc euismod ac. Nam eu orci felis. Quisque ut elementum quam. Vivamus pulvinar nisi nunc, ut faucibus turpis tincidunt eget. Fusce nec ex quis odio laoreet consequat. Duis faucibus metus id feugiat sodales. Sed eu ligula eget quam ultricies tincidunt. Morbi sodales nunc ultrices justo pellentesque, ac mattis mi sagittis. Morbi ut consectetur neque.</p>
 											</div>
 										</div>
 									</li>
@@ -1015,8 +899,6 @@
 
 </div>
 <!-- /Wrapper All -->
-
-
 
 <!-- Scripts -->
 <script src="js/jquery.js?ver=3"></script>
