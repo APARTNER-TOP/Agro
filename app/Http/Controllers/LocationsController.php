@@ -88,7 +88,7 @@ class LocationsController extends Controller
         }
     }
 
-    public function edit() {
+    public function edit($id = false) {
         $id = request()->get('id');
         $location = DB::table('locations')->where(['user_id' => Auth::user()->id, 'id' => $id])->first();
 
