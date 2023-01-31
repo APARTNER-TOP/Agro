@@ -11,17 +11,16 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LocationsController as LocationsController;
+
 use App\Models\Location as Location;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
-
     Route::post('register', [RegisteredUserController::class, 'store']);
-
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
-
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
     // Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
@@ -79,22 +78,27 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     //! Admin locations page
     // Route::get('/dashboard/locations','App\Http\Controllers\LocationsController@index')->name('locations');
-
+    // Route::get('register', [RegisterController::class, 'register']);
+    // Route::get('register', [RegisterController::class, 'register'])->name('register');
     // Route::get('/dashboard/locations/map','App\Http\Controllers\LocationsController@map')->name('locations/map');
 
-    Route::get('/dashboard/locations/create', function() {
+    $prefix = '/dashboard/locations/';
+
+    Route::get($prefix .'map', [LocationsController::class, 'map']);
+
+    Route::get($prefix .'create', function() {
         $locationsType = Location::getTypes();
 
         return view('locations.create', compact('locationsType'));
     })->name('locations.create');
 
-    Route::get('/dashboard/locations/edit/','App\Http\Controllers\LocationsController@edit')->name('locations.edit');
+    Route::get($prefix . 'edit/',[LocationsController::class, 'edit'])->name('locations.edit');
+
     // Route::get('/dashboard/locations/edit/{id}','App\Http\Controllers\LocationsController@edit')->name('locations.edit');
 
-    Route::get('/dashboard/locations/delete','App\Http\Controllers\LocationsController@delete')->name('locations.delete');
+    Route::get($prefix .'delete',[LocationsController::class, 'delete']);
 
-    Route::post('/dashboard/locations/update','App\Http\Controllers\LocationsController@storeOrUpdate')->name('locations.update');
+    Route::post($prefix .'update',[LocationsController::class, 'storeOrUpdate'])->name('locations.update');
 
-    Route::post('/dashboard/locations/action','App\Http\Controllers\LocationsController@storeOrUpdate')->name('locations.action');
-
+    Route::post($prefix . 'action',[LocationsController::class, 'storeOrUpdate'])->name('locations.action');;
 });
