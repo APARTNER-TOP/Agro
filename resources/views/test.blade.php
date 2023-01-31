@@ -27,7 +27,7 @@
                 <ul id="location_type">
                     @foreach ($locationsType as $locationType)
                     <li data-id="{{ $locationType->id}}">
-                        <img src="/img/locations/{{ $locationType->id}}.png" alt="img" width="20" height="20" /> {{ $locationType->name}}
+                        <img src="/img/locations/{{ $locationType->id }}.png" alt="img" width="20" height="20" /> {{ $locationType->name}}
                     </li>
                     @endforeach
                 </ul>
@@ -35,7 +35,7 @@
             <div class="col-6">
                 <form method="POST" action="{{ route('locations.action') }}" class="location_save d-none" id="location_save">
                     @csrf
-                    @include ('components.locations.forms')
+                    @include ('locations.components.forms')
 
                     <div class="flex items-center justify-end mt-4">
                         <!-- <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">

@@ -12,8 +12,9 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LocationsController as LocationsController;
-
 use App\Models\Location as Location;
+
+use Illuminate\Http\Request as Request;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -62,8 +63,9 @@ Route::middleware('auth')->group(function () {
 
 //! admin page
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/dashboard', function (Request $request) {
         // \App::setLocale('en');
+        // dd($request);
 
         // $locations = Location::all();
         $locations = Location::select('id', 'type_id', 'company', 'address', 'lat', 'lon')->where('user_id' ,'=', Auth::user()->id)->get();
@@ -84,7 +86,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     $prefix = '/dashboard/locations/';
 
+    Route::get($prefix .'search', [LocationsController::class, 'search']);
+
     Route::get($prefix .'map', [LocationsController::class, 'map']);
+    Route::get($prefix .'map/{type_id}/{id}', [LocationsController::class, 'map']);
 
     Route::get($prefix .'create', function() {
         $locationsType = Location::getTypes();

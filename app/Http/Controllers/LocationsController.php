@@ -21,7 +21,7 @@ class LocationsController extends Controller
         return view('locations.index', compact('locations'));
     }
 
-    public function map() {
+    public function search() {
         $longitude = $latitude = $address = false;
 
         if (request('address') || request('submit_address')) {
@@ -34,7 +34,25 @@ class LocationsController extends Controller
             $longitude = request('longitude');
         }
 
-        return view('locations.map', compact('address', 'latitude', 'longitude'));
+        return view('locations.search', compact('address', 'latitude', 'longitude'));
+    }
+
+    public function map($type_id, $id = false) {
+        $coordinate = explode(',', $id);
+        $lat = $lon = false;
+        $user_id = Auth::user()->id;
+
+        if (count($coordinate) == 2) {
+            $lat = $coordinate[0];
+            $lon = $coordinate[1];
+        } else {
+            $location = Location::getLocationGeo($id, $user_id);
+
+            $lat = $location->lat;
+            $lon = $location->lon;
+        }
+
+        return view('locations.map', compact('type_id', 'lat', 'lon'));
     }
 
     public function create()
@@ -66,7 +84,8 @@ class LocationsController extends Controller
                         'company' => $locations->company,
                         'address' => $locations->address,
                         'lat' => $locations->lat,
-                        'lon' => $locations->lon
+                        'lon' => $locations->lon,
+                        'updated_at' => now(),
                     ]
                 );
 

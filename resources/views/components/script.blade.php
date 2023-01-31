@@ -116,11 +116,7 @@
 
     //! disable btn send form
     // $('#location_save').change(function() {
-
-        console.log($('#map_lat').val() == '' && $('#map_lon').val() == '' );
-
-
-        $('#map_lat').val() == '' && $('#map_lon').val() == '' ? $('#location_save button').addClass('disabled') : $('#location_save button').removeClass('disabled');
+    $('#map_lat').val() == '' && $('#map_lon').val() == '' ? $('#location_save button').addClass('disabled') : $('#location_save button').removeClass('disabled');
     // });
 
     //! click .autocomplete-items div
@@ -129,13 +125,18 @@
         $('#address input').val(address);
         $('.autocomplete-items').remove();
 
-        address = address.replaceAll(' ', '+');
-        address = address.replaceAll(',', '');
+        // address = address.replaceAll(' ', '+');
+        // address = address.replaceAll(',', '');
+        // $('#map_link').attr('href', 'https://www.google.com/maps/place/' + address);
 
-        $('#map_link').attr('href', 'https://www.google.com/maps/place/' + address);
+        var type_id = $('#type_id').val(); //! location_id
+        var map_lat = $(this).data('lat');
+        var map_lon = $(this).data('lon');
 
-        $('#map_lat').val($(this).data('lat'));
-        $('#map_lon').val($(this).data('lon'));
+        $('#map_lat').val(map_lat);
+        $('#map_lon').val(map_lon);
+
+        $('#map_link').attr('href', '/dashboard/locations/map/' + type_id + '/' + map_lat + ',' + map_lon);
 
         $('#map_lat').val() == '' && $('#map_lon').val() == '' ? $('#location_save button').addClass('disabled') : $('#location_save button').removeClass('disabled');
     });
@@ -145,16 +146,24 @@
         $('#map_link').addClass('d-block').removeClass('d-none');
 
         var address = $(this).val();
-        address = address.replaceAll(' ', '+');
-        address = address.replaceAll(',', '');
+        // address = address.replaceAll(' ', '+');
+        // address = address.replaceAll(',', '');
+        // $('#map_link').attr('href', 'https://www.google.com/maps/place/' + address);
 
-        $('#map_link').attr('href', 'https://www.google.com/maps/place/' + address);
+        var type_id = $('#type_id').val(); //! location_id
+        var map_lat = $(this).data('lat');
+        var map_lon = $(this).data('lon');
 
-        if($('#address input').val().length <= 2) {
+        $('#map_link').attr('href', '/dashboard/locations/map/' + type_id + '/' + map_lat + ',' + map_lon);
+
+        // if ($('#address input').val().length <= 2) {
+        //     $('#map_link').addClass('d-none');
+        // }
+        if ($('#address input').val().length <= 2 && !map_lat && !map_lon) {
             $('#map_link').addClass('d-none');
         }
 
-        if(!address) {
+        if (!address) {
             $('#map_lat').val('');
             $('#map_lon').val('');
         }
@@ -164,11 +173,11 @@
 
     @if(request()->has('id'))
     //! set default address
-        $('#address input').val('{{ $location->address }}');
-        if($('#address input').val().length <= 2) {
-            $('#map_link').addClass('d-none');
-        } else {
-            // $('#map_link').addClass('d-block').removeClass('d-none');
-        }
+    $('#address input').val('{{ $location->address }}');
+    if ($('#address input').val().length <= 2) {
+        $('#map_link').addClass('d-none');
+    } else {
+        // $('#map_link').addClass('d-block').removeClass('d-none');
+    }
     @endif
 </script>
