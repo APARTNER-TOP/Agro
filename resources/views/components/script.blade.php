@@ -28,6 +28,17 @@
         $('#location_save').removeClass('d-none');
         $('#location_save .storage').text(text);
         $('#location_save .type_id').val(type_id);
+
+        //! fix location
+        // var map_lat = $('#map_lat').val();
+        // var map_lon = $('#map_lon').val();
+        // map_lat == '' && map_lon == '' ? $('#location_save button').addClass('disabled') : $('#location_save button').removeClass('disabled');
+
+        // if(map_lat != '' && map_lon != '') {
+        //     $('#map_link').addClass('d-block').removeClass('d-none');
+
+        //     $('#map_link').attr('href', '/dashboard/locations/map/' + type_id + '/' + map_lat + ',' + map_lon);
+        // }
     });
 
     //! address autocomplete
@@ -136,6 +147,9 @@
         $('#map_lat').val(map_lat);
         $('#map_lon').val(map_lon);
 
+        //! fix show link
+        $('#map_link').addClass('d-block').removeClass('d-none');
+
         $('#map_link').attr('href', '/dashboard/locations/map/' + type_id + '/' + map_lat + ',' + map_lon);
 
         $('#map_lat').val() == '' && $('#map_lon').val() == '' ? $('#location_save button').addClass('disabled') : $('#location_save button').removeClass('disabled');
@@ -168,16 +182,31 @@
             $('#map_lon').val('');
         }
 
+        //! fix after change input remove coordinate
+        // $('#map_lat').val('');
+        // $('#map_lon').val('');
+
+        $('#map_link').addClass('d-none');
+
         $('#map_lat').val() == '' && $('#map_lon').val() == '' ? $('#location_save button').addClass('disabled') : $('#location_save button').removeClass('disabled');
     });
 
     @if(request()->has('id'))
+    //! check if has id on link
+
+    //! show link for current location_id
+    // var type_id = "{{ $location->type_id }}";
+    // var location_id = "{{ $location->id }}";
+    // var map_lat =  "{{ $location->lat }}";
+    // var map_lon =  "{{ $location->lon }}";
+
+    // $('#map_link').addClass('d-block').removeClass('d-none');
+    // $('#map_link').attr('href', '/dashboard/locations/map/' + type_id + '/' + map_lat + ',' + map_lon);
+
     //! set default address
     $('#address input').val('{{ $location->address }}');
     if ($('#address input').val().length <= 2) {
         $('#map_link').addClass('d-none');
-    } else {
-        // $('#map_link').addClass('d-block').removeClass('d-none');
     }
     @endif
 </script>
