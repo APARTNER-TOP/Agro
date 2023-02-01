@@ -1,6 +1,3 @@
-
-
-
 <html>
 
 <head>
@@ -8,8 +5,10 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <style>
-        #map {
-            height: 100%;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         html,
@@ -18,10 +17,66 @@
             margin: 0;
             padding: 0;
         }
+
+        /* map */
+        #map {
+            height: 100%;
+        }
+
+        /* copyright */
+        .copyright {
+            position: absolute;
+            left: 10px;
+            bottom: 40px;
+        }
+
+        .copyright .link {
+            display: block;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: sans-serif;
+            text-decoration: none;
+            position: relative;
+            cursor: pointer;
+            background-color: yellow;
+            border-radius: 3px;
+            transition: border-radius 1.5s linear;
+            color: blue;
+        }
+
+        .copyright .link .description {
+            display: block;
+            position: absolute;
+            top: -90px;
+            left: 0;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 10px;
+            background-color: blue;
+            color: #fff;
+            border-radius: 3px 3px 0 0;
+            transition: all 1.5s linear;
+            opacity: 0;
+        }
+
+        .copyright .link:hover {
+            border-radius: 0 0 3px 3px;
+            transition: border-radius 1.5s linear;
+        }
+
+        .copyright .link:hover .description {
+            transition: all 1.5s linear;
+            opacity: 1;
+        }
     </style>
+</head>
+
+<body>
+
     <script>
-        var lat = {{ $lat }};
-        var lon = {{ $lon }};
+        var lat = {{$lat}};
+        var lon = {{$lon}};
     </script>
     <script>
         function initMap() {
@@ -42,7 +97,7 @@
 
             new google.maps.Marker({
                 position: map.getCenter(),
-                icon: 'http://agro.localhost/img/locations/small/{{$type_id}}.png',
+                icon: '/img/locations/small/{{$type_id}}.png',
                 map: map,
                 // title: 'title',
                 // ariaLabel: "title",
@@ -51,11 +106,20 @@
 
         window.initMap = initMap;
     </script>
-</head>
-<body>
-    <div id="map"></div>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly" defer></script>
-</body>
+    </head>
+
+    <body>
+        <div id="map"></div>
+
+        <div class="copyright">
+            <a href="https://apartner.top" title="Development of sites on laravel, prestashop, wordpress and their support" class="link"  rel="dofollow">
+                APARTNER.TOP
+                <strong class="description">Development of sites on Laravel, PrestaShop, Wordpress and their support</strong>
+            </a>
+        </div>
+
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAey5wHsk6WTK4x3cpXJnyfpKmm8nQ8Dxs&callback=initMap&v=weekly" defer></script> -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly" defer></script>
+    </body>
 
 </html>
