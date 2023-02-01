@@ -76,7 +76,8 @@
             var promise = new Promise((resolve, reject) => {
                 currentPromiseReject = reject;
                 var apiKey = 'b8e29e63c5ba427682d06de390d243b2';
-                var url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(currentValue)}&limit=5&apiKey=${apiKey}`;
+                var limit = 5;
+                var url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(currentValue)}&limit=${limit}&apiKey=${apiKey}`;
 
                 fetch(url)
                     .then(response => {
