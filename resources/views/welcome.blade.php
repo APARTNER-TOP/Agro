@@ -15,3 +15,8 @@
         @endauth
     </ul>
 @endif
+
+
+<!-- {{ config('app.url') }}
+{{ env('DB_USERNAME') }}
+{{ env('API_GEOAPIFY') }} -->

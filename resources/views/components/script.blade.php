@@ -75,7 +75,7 @@
             /* Create a new promise and send geocoding request */
             var promise = new Promise((resolve, reject) => {
                 currentPromiseReject = reject;
-                var apiKey = 'b8e29e63c5ba427682d06de390d243b2';
+                var apiKey = '{{ env('API_GEOAPIFY') }}' ? '{{ env('API_GEOAPIFY') }}' : 'b8e29e63c5ba427682d06de390d243b2';
                 var limit = 5;
                 var url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(currentValue)}&limit=${limit}&apiKey=${apiKey}`;
 

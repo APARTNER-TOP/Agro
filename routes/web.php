@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Carbon\Carbon as Carbon;
 use App\Models\Location as Location;
 
+// use Illuminate\Support\Facades\App; //! for get environment
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,12 @@ use App\Models\Location as Location;
 */
 
 Route::get('/', function () {
+    // $environment = App::environment();
+
+    // if (App::environment(['local', 'staging'])) {
+    //     echo $environment;
+    // }
+
     return view('welcome');
 });
 

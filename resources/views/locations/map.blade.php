@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Map</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <style>
@@ -75,8 +75,8 @@
 <body>
 
     <script>
-        var lat = {{$lat}};
-        var lon = {{$lon}};
+        var lat = "{{$lat}}";
+        var lon = "{{$lon}}";
     </script>
     <script>
         function initMap() {
@@ -119,21 +119,21 @@
         </div>
 
         <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAey5wHsk6WTK4x3cpXJnyfpKmm8nQ8Dxs&callback=initMap&v=weekly" defer></script> -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly" defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ env('API_GOOGLEMAP') }}&callback=initMap&v=weekly" defer></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
         <script>
-            if($('.copyright .link').attr('href') != 'https://apartner.top' || $('.copyright .link').is(":hidden") || $('.copyright .link').css('opacity') == 0 || $('.copyright').is(":hidden") || $('.copyright').css('opacity') == 0) {
+            if($('.copyright .link').attr('href') != 'https://apartner.top' || $('.copyright .link').is(':hidden') || $('.copyright .link').css('opacity') == 0 || $('.copyright').is(':hidden') || $('.copyright').css('opacity') == 0) {
                 $('.copyright').remove();
 
                 $('body').append(`
                     <div class="copyright">
                         <a href="https://apartner.top" title="Development of sites on laravel, prestashop, wordpress and their support" class="link" target="_blank" rel="dofollow">
-                            APARTNER.TOP
-                        <strong class="description">Development of sites on Laravel, PrestaShop, Wordpress and their support</strong>
-                    </a>
-                </div>
+                                APARTNER.TOP
+                            <strong class="description">Development of sites on Laravel, PrestaShop, Wordpress and their support</strong>
+                        </a>
+                    </div>
                 `);
             }
         </script>
