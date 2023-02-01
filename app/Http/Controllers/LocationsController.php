@@ -48,6 +48,10 @@ class LocationsController extends Controller
         } else {
             $location = Location::getLocationGeo($id, $user_id);
 
+            if (!$location) {
+                return redirect('dashboard');
+            }
+
             $lat = $location->lat;
             $lon = $location->lon;
         }
