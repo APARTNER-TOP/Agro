@@ -24,5 +24,8 @@
     "Profile": "Профіль",
     "Log Out": "Вийти",
     "You're logged in!": "Ви увійшли!",
-    "Save": "Зберегти"
+    "Save": "Зберегти",
+    "Type user": "Тип користувача",
+    "Company address": "Адреса компанії",
+    "Phone": "Телефон"
 }
