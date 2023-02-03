@@ -59,10 +59,10 @@
     <div>
         <x-input-label for="name" :value="__('ВАШ')" class="storage" />
         <br>
-        {{ Auth::user()->name }}
-        <x-text-input id="name" class="block mt-1 w-full d-none" type="text" name="name" value="{{ Auth::user()->name }}" required autofocus oninvalid="invalidMsg(this);" />
-        @if ($errors->has('name'))
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        {{ Auth::user()->company_name }}
+        <x-text-input id="name" class="block mt-1 w-full d-none" type="text" name="name" value="{{ Auth::user()->company_name }}" required autofocus oninvalid="invalidMsg(this);" />
+        @if ($errors->has('company_name'))
+            <x-input-error :messages="$errors->get('company_name')" class="mt-2" />
         @endif
     </div>
     <div>
