@@ -15,11 +15,9 @@
                 <!-- <x-text-input id="type_user" class="block mt-1 w-full" type="text" name="type_user" :value="old('type_user')" required autofocus oninvalid="invalidMsg(this);" /> -->
 
                 <select id="type_user" name="type_user" class="form-control rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    @foreach($users_type as $type)
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
                 </select>
 
                 @if ($errors->has('name'))
@@ -95,6 +93,16 @@
 
                 @if ($errors->has('password_confirmation'))
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                @endif
+            </div>
+
+
+            <div class="mt-4">
+                <input type="checkbox" id="confirm" name="confirm" value="0" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" unchecked>
+                <label for="confirm">By creating an account, <a href="#">The Terms of Use</a> are accepted</label>
+
+                @if ($errors->has('confirm'))
+                    <x-input-error :messages="$errors->get('confirm')" class="mt-2" />
                 @endif
             </div>
 

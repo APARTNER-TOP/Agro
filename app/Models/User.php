@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -46,4 +49,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get users types
+     * @param mixed $system_user
+     * @return mixed result
+     */
+    public static function getTypes($system_user = false) {
+        if ($system_user == 'admin') {
+            return DB::table('users_type')->select('id','name')->where('id', '<=', '5')->get();
+        }
+
+        return DB::table('users_type')->select('id','name')->where('id', '>=', '6')->get();
+    }
+
+    // public static function getLocationGeo($location_id, $user_id) {
+    //     $locationGeo = DB::table('locations')
+    //                     ->select('type_id', 'lat', 'lon')
+    //                     ->where(['id' => $location_id, 'user_id' => $user_id])
+    //                     ->first();
+    //     return $locationGeo;
+    // }
 }

@@ -20,7 +20,9 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $users_type = User::getTypes();
+
+        return view('auth.register', compact('users_type'));
     }
 
     /**
@@ -36,8 +38,9 @@ class RegisteredUserController extends Controller
         $request->validate([
             'type_user' => ['required', 'string', 'max:255'],
             'company_name' => ['required', 'string', 'max:255'],
-            'company_address' => ['string', 'max:255'],
+            'company_address' => ['string', 'max:255', 'nullable'],
             'phone' => ['required', 'string', 'max:255'],
+            'confirm' => ['required', 'string', 'max:255'],
 
 
             'name' => ['required', 'string', 'max:255'],
