@@ -21,6 +21,9 @@ return new class extends Migration
         DB::table('users_type')->insert([
             ['name' => 'Admin'],
             ['name' => 'Manager'],
+            ['name' => 'Custom 1'],
+            ['name' => 'Custom 2'],
+            ['name' => 'Custom 3'],
             ['name' => 'Фермер / Виробник'],
             ['name' => 'Трейдер'],
             ['name' => 'Переробник'],
