@@ -73,7 +73,7 @@ class LocationsController extends Controller
         }
         $locations->type_id = request('type_id');
         $locations->user_id = Auth::user()->id;
-        $locations->company = Auth::user()->name;
+        $locations->company = Auth::user()->company_name;
         $locations->address = request('address');
 
         $locations->lat = request('lat') ?? false;
@@ -85,7 +85,7 @@ class LocationsController extends Controller
             ->where('id', $locations->id)
                 ->update(
                     [
-                        'company' => $locations->company,
+                        'company' => $locations->company_name,
                         'address' => $locations->address,
                         'lat' => $locations->lat,
                         'lon' => $locations->lon,

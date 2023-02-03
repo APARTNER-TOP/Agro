@@ -9,21 +9,56 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
-            <!-- <div>
-                <x-input-label for="name" :value="__('Name')" />
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
-            </div> -->
+            <!-- Type user -->
+            <div class="mt-4">
+                <x-input-label for="type_user" :value="__('Type user')" />
+                <!-- <x-text-input id="type_user" class="block mt-1 w-full" type="text" name="type_user" :value="old('type_user')" required autofocus oninvalid="invalidMsg(this);" /> -->
+
+                <select id="type_user" name="type_user" class="form-control rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                @if ($errors->has('name'))
+                <x-input-error :messages="$errors->get('type_user')" class="mt-2" />
+                @endif
+            </div>
 
             <!-- Name Company-->
             <div class="mt-4">
-                <x-input-label for="name" :value="__('Company name')" />
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus oninvalid="invalidMsg(this);" />
-                @if ($errors->has('name'))
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                <x-input-label for="company_name" :value="__('Company name')" />
+                <x-text-input id="company_name" class="block mt-1 w-full" type="text" name="company_name" :value="old('company_name')" required autofocus oninvalid="invalidMsg(this);" />
+                @if ($errors->has('company_name'))
+                <x-input-error :messages="$errors->get('company_name')" class="mt-2" />
                 @endif
             </div>
+
+            <!-- Address Company-->
+            <div class="mt-4">
+                <x-input-label for="company_address" :value="__('Company address')" />
+                <x-text-input id="company_address" class="block mt-1 w-full" type="text" name="company_address" :value="old('company_address')" autofocus oninvalid="invalidMsg(this);" />
+                @if ($errors->has('company_address'))
+                <x-input-error :messages="$errors->get('company_address')" class="mt-2" />
+                @endif
+            </div>
+
+            <!-- Name -->
+            <div class="mt-4">
+                <x-input-label for="name" :value="__('Name')" />
+                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            </div>
+
+            <!-- Phone -->
+            <div class="mt-4">
+                <x-input-label for="phone" :value="__('Phone')" />
+                <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus />
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            </div>
+
 
             <!-- Email Address -->
             <div class="mt-4">
