@@ -19,6 +19,11 @@ return new class extends Migration
             // $table->integer('id');
             $table->string('name');
         });
+
+        DB::table('locations_type')->insert([
+            ['id' => '1', 'name' => 'Завод'],
+            ['id' => '2', 'name' => 'Склад підлоговий'],
+        ]);
     }
 
     /**
