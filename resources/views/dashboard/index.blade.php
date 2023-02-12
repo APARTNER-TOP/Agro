@@ -56,13 +56,30 @@
 
     <div class="container">
         <p>Вибір типу складу</p>
+        <form method="POST" action="{{ route('locations.action') }}" class="location_save" id="location_save">
+            <select id="culture_type" name="culture_type" class="form-control rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full">
+                <option value="" selected disabled hidden>Вибір товару</option>
+                @foreach($cultureType as $culture)
+                    <option value="{{ $culture->id }}">{{ $culture->name }}</option>
+                @endforeach
+            </select>
 
-        <select id="type_user" name="type_user" class="form-control rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full">
-            <option value="" selected disabled hidden>Вибраний товар</option>
-            @foreach($cultureType as $culture)
-                <option value="{{ $culture->id }}">{{ $culture->name }}</option>
-            @endforeach
-        </select>
+            <select id="culture_type" name="culture_type" class="form-control rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full">
+                <option value="" selected disabled hidden>Вибір типу</option>
+                <option value="1">Куплю</option>
+                <option value="2">Продам</option>
+                <!-- @foreach($cultureType as $culture)
+                    <option value="{{ $culture->id }}">{{ $culture->name }}</option>
+                @endforeach -->
+            </select>
+
+            <select id="locations_type" name="locations_type" class="form-control rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full">
+                <option value="" selected disabled hidden>Вибір локації</option>
+                @foreach($locationsType as $locationType)
+                    <option value="{{ $locationType->id }}">{{ $locationType->name }}</option>
+                @endforeach
+            </select>
+        </form>
     </div>
 
     <!-- @if (count($locations) != 0)
