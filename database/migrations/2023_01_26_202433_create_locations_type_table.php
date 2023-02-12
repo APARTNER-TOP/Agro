@@ -18,11 +18,16 @@ return new class extends Migration
             // $table->increments('id');
             // $table->integer('id');
             $table->string('name');
+            $table->string('img')->nullable();
         });
 
         DB::table('locations_type')->insert([
-            ['id' => '1', 'name' => 'Завод'],
-            ['id' => '2', 'name' => 'Склад підлоговий'],
+            ['name' => 'Завод', 'img' => '/img/locations/1.png'],
+            ['name' => 'Склад підлоговий', 'img' => '/img/locations/2.png'],
+            ['name' => 'Термінал', 'img' => '/img/locations/3.png'],
+            ['name' => 'Елеватор', 'img' => '/img/locations/4.png'],
+            ['name' => 'EXW (по регіону)', 'img' => '/img/locations/5.png'],
+            ['name' => 'FCA (по регіону)', 'img' => '/img/locations/6.png'],
         ]);
     }
 
