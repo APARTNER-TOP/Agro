@@ -79,6 +79,11 @@
                     <option value="{{ $locationType->id }}">{{ $locationType->name }}</option>
                 @endforeach
             </select>
+
+            <x-primary-button class="ml-4 btn btn-success"  aria-disabled="true">
+                {{ __('Save') }}
+            </x-primary-button>
+
         </form>
     </div>
 
