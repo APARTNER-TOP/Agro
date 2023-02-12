@@ -20,8 +20,8 @@
                     @endforeach
                 </select>
 
-                @if ($errors->has('name'))
-                <x-input-error :messages="$errors->get('type_user')" class="mt-2" />
+                @if ($errors->has('name') || session('error'))
+                    <x-input-error :messages="$errors->get('type_user') ? $errors->get('type_user') : session('error')" class="mt-2" />
                 @endif
             </div>
 

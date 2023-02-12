@@ -48,6 +48,11 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        // if($request->type_user <= 5) {
+        //     // abort(404);
+        //     return redirect()->back()->with('error', 'Please choose an current option!');
+        // }
+
         $user = User::create([
             'type_user' => $request->type_user,
             'company_name' => $request->company_name,

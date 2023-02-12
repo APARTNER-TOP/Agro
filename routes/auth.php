@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
@@ -63,19 +64,11 @@ Route::middleware('auth')->group(function () {
 
 //! admin page
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function (Request $request) {
-        // \App::setLocale('en');
-        // dd($request);
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
-        // $locations = Location::all();
-        $locations = Location::select('id', 'type_id', 'company', 'address', 'lat', 'lon')->where('user_id' ,'=', Auth::user()->id)->get();
-
-        // $locationsType = DB::table('locations_type')->get();
-        $locationsType = Location::getTypes();
-
-        return view('test', compact('locations', 'locationsType'));
-        // return view('dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function (Request $request) {
+    //     return view('test');
+    // })->name('dashboard');
 
 
     //! Admin locations page
