@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Location;
 use App\Models\Culture;
+use App\Models\Offer;
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
@@ -38,7 +39,10 @@ class AdminController extends Controller
         //! Culture
         $cultureType = Culture::getTypes();
 
-        return view('dashboard/index', compact('locations', 'locationsType', 'cultureType'));
+        //! Offer
+        $offerType = Offer::getTypes();
+
+        return view('dashboard/index', compact('locations', 'locationsType', 'cultureType', 'offerType'));
         // return view('dashboard');
     }
 }
