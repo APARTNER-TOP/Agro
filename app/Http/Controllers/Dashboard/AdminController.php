@@ -32,7 +32,7 @@ class AdminController extends Controller
 
         //! Locations
         // $locations = Location::all();
-        $locations = Location::select('id', 'type_id', 'company', 'address', 'lat', 'lon')->where('user_id' ,'=', Auth::user()->id)->get();
+        $locations = Location::select('id', 'type_id', 'company', 'address', 'lat', 'lon', 'status')->where('user_id' ,'=', Auth::user()->id)->get();
         // $locationsType = DB::table('locations_type')->get();
         $locationsType = Location::getTypes();
 
@@ -42,7 +42,7 @@ class AdminController extends Controller
         //! Offer
         $offerType = Offer::getTypes();
 
-        return view('dashboard/index', compact('locations', 'locationsType', 'cultureType', 'offerType'));
+        return view('dashboard.index', compact('locations', 'locationsType', 'cultureType', 'offerType'));
         // return view('dashboard');
     }
 }

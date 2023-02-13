@@ -9,14 +9,15 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\Location as Location;
+use App\Models\Location;
+use App\Models\Culture;
 
 class LocationsController extends Controller
 {
     public function index()
     {
         // $locations = Location::all();
-        $locations = Location::select('*')->orderBy('id')->where('user_id', '=', Auth::user()->id)->get('id');
+        $locations = Location::select('id', 'type_id', 'company', 'address', 'lat', 'lon', 'status')->where('user_id' ,'=', Auth::user()->id)->get();
 
         return view('locations.index', compact('locations'));
     }
@@ -64,69 +65,79 @@ class LocationsController extends Controller
         return view('locations.create');
     }
 
-    public function storeOrUpdate()
+    public function storeOrUpdate(Request $request)
     {
-        $locations = new Location();
+        $validated = $request->validate([
+            'culture_type' => 'required',
+            'offer_type' => 'required',
+            'type_id' => 'required',
+            'address' => 'required',
+            'company' => 'required',
+            'price' => 'required|integer',
+            'weight' => 'required|max:100000',
+            'lat' => 'required',
+            'lon' => 'required',
+        ]);
 
-        if (request('id')) {
-            $locations->id = request('id');
+        // dd($validated);
+        // exit;
+
+        $culture_type = $request->input('culture_type');
+        $offer_type = $request->input('offer_type');
+        $price = $request->input('price');
+        $weight = $request->input('weight');
+
+        $request = $request->all();
+
+        unset($request['culture_type']);
+        unset($request['offer_type']);
+        unset($request['price']);
+        unset($request['weight']);
+
+        // dd($request);
+
+        $location = new Location();
+        $location->fill($request);
+        $location->user_id = Auth::user()->id;
+        $location->save();
+
+        echo $location->id;
+
+        if($location->id) {
+            Culture::create([
+                'location_id' =>  $location->id,
+                'culture_type' =>  $culture_type,
+                'offer_type' =>  $offer_type,
+                'price' =>  $price,
+                'weight' =>  $weight,
+            ]);
+
+            return back()->with('success', 'Вітаємо! Локація успішно добавлена');
         }
-        $locations->type_id = request('type_id');
-        $locations->user_id = Auth::user()->id;
-        $locations->company = Auth::user()->company_name;
-        $locations->address = request('address');
 
-        $locations->lat = request('lat') ?? false;
-        $locations->lon = request('lon') ?? false;
-        // $locations->description = request('description');
-
-        if ($locations->id) {
-            DB::table('locations')
-            ->where('id', $locations->id)
-                ->update(
-                    [
-                        'company' => $locations->company_name,
-                        'address' => $locations->address,
-                        'lat' => $locations->lat,
-                        'lon' => $locations->lon,
-                        'updated_at' => now(),
-                    ]
-                );
-
-            $update = false;
-
-            if ($update) {
-                $update = true;
-            }
-
-            return redirect('/dashboard?save=' . $update . '&type_id=' . request('type_id'));
-        } else {
-            $insert = false;
-
-            if ($locations->save()) {
-                $insert = true;
-            }
-
-            return redirect('/dashboard?save=' . $insert . '&type_id=' . request('type_id'));
-        }
+        return back()->with('error', 'Помилка добавлення локації');
     }
 
-    public function edit($id = false) {
-        $id = request()->get('id');
+    public function edit($id) {
         $location = DB::table('locations')->where(['user_id' => Auth::user()->id, 'id' => $id])->first();
 
-        return view('locations.edit', compact('location'));
+        return view('locations.edit', compact('location', 'id'));
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $id = request()->get('id');
         $success = false;
 
         if (DB::table('locations')->where(['user_id' => Auth::user()->id, 'id' => $id])->delete()) {
             $success = true;
         }
 
-        return redirect('/dashboard');
+        return back()->with('success', 'Вітаємо! Локація успішно видаленна');
+    }
+
+    public function stop($id) {
+        Location::setDisable($id);
+
+        return back()->with('success', 'Вітаємо! Локація успішно деактивована');
     }
 }

@@ -23,6 +23,7 @@ return new class extends Migration
             // $table->text('description');
             $table->text('lat');
             $table->text('lon');
+            $table->tinyInteger('status')->default('1');
             $table->timestamps();
         });
     }

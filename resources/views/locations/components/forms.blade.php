@@ -1,4 +1,4 @@
-@if(request()->has('id'))
+@if($id)
 <style>
     .location_save {
         display: block !important;
@@ -6,55 +6,16 @@
 </style>
 @endif
 
-<style>
-    .autocomplete-container {
-        position: relative;
-    }
-
-    .autocomplete-container input {
-        width: calc(100% - 43px);
-        outline: none;
-
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        padding: 10px;
-        padding-right: 31px;
-        font-size: 16px;
-    }
-
-    .autocomplete-items {
-        position: absolute;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
-        border-top: none;
-        z-index: 99;
-        top: calc(100% + 2px);
-        left: 0;
-        right: 0;
-        width: calc(100% - 43px);
-    }
-
-    .autocomplete-items div {
-        padding: 10px;
-        cursor: pointer;
-        background-color: #fff;
-    }
-
-    .autocomplete-items div:hover {
-        background-color: gray;
-        color: #fff;
-    }
-</style>
-
 <div class="mt-4">
     <div>
-        @if(request()->has('id'))
+        @if($id)
             <x-text-input class="id block mt-1 w-full" type="hidden" name="id" value="{{ $location->id }}" required />
         @endif
 
-        <input name="type_id" type="hidden" id="type_id" class="type_id" @if(request()->has('id')) value="{{ $location->type_id }}" @endif required />
+        <input name="type_id" type="hidden" id="type_id" class="type_id" @if($id) value="{{ $location->type_id }}" @endif required />
 
-        <input name="lat" type="hidden" id="map_lat" class="map_lat" @if(request()->has('id')) value="{{ $location->lat }}" @endif required />
-        <input name="lon" type="hidden" id="map_lon" class="map_lon" @if(request()->has('id')) value="{{ $location->lon }}" @endif required />
+        <input name="lat" type="hidden" id="map_lat" class="map_lat" @if($id) value="{{ $location->lat }}" @endif required />
+        <input name="lon" type="hidden" id="map_lon" class="map_lon" @if($id) value="{{ $location->lon }}" @endif required />
     </div>
     <div>
         <x-input-label for="name" :value="__('ВАШ')" class="storage" />

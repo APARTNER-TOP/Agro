@@ -20,36 +20,28 @@
 
 
 <script>
-    //! click #location_type li
-    $('#location_type li').on('click', function() {
-        var type_id = $(this).data('id');
-        var text = $(this).text();
-
-        $('#location_save').removeClass('d-none');
-        $('#location_save .storage').text(text);
-        $('#location_save .type_id').val(type_id);
-
-        //! fix location
-        // var map_lat = $('#map_lat').val();
-        // var map_lon = $('#map_lon').val();
-        // map_lat == '' && map_lon == '' ? $('#location_save button').addClass('disabled') : $('#location_save button').removeClass('disabled');
-
-        // if(map_lat != '' && map_lon != '') {
-        //     $('#map_link').addClass('d-block').removeClass('d-none');
-
-        //     $('#map_link').attr('href', '/dashboard/locations/map/' + type_id + '/' + map_lat + ',' + map_lon);
-        // }
-    });
-
     //! address autocomplete
     function addressAutocomplete(containerElement) {
         var textInput = '{{ __("Enter an address here ") }}';
-        var textInput = '';
+        var textInput = 'Населений пункт';
 
         var inputElement = document.createElement('input');
         inputElement.setAttribute('type', 'text');
         inputElement.setAttribute('name', 'address');
         inputElement.setAttribute('placeholder', textInput);
+        inputElement.classList.add('rounded-md');
+        inputElement.classList.add('shadow-sm');
+        inputElement.classList.add('border-gray-300');
+        inputElement.classList.add('focus:border-indigo-300');
+        inputElement.classList.add('focus:ring');
+        inputElement.classList.add('focus:ring-indigo-200');
+        inputElement.classList.add('focus:ring-opacity-50');
+        inputElement.classList.add('block');
+        inputElement.classList.add('mt-1');
+        inputElement.classList.add('w-full');
+        inputElement.classList.add('form-control');
+        inputElement.value = '{{ old('address') }}';
+
         containerElement.appendChild(inputElement);
 
         /* Current autocomplete items data (GeoJSON.Feature) */
@@ -136,10 +128,6 @@
         var address = $(this).text();
         $('#address input').val(address);
         $('.autocomplete-items').remove();
-
-        // address = address.replaceAll(' ', '+');
-        // address = address.replaceAll(',', '');
-        // $('#map_link').attr('href', 'https://www.google.com/maps/place/' + address);
 
         var type_id = $('#type_id').val(); //! location_id
         var map_lat = $(this).data('lat');

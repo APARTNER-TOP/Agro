@@ -90,13 +90,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('locations.create', compact('locationsType'));
     })->name('locations.create');
 
-    Route::get($prefix . 'edit/',[LocationsController::class, 'edit'])->name('locations.edit');
+    Route::get($prefix . 'edit/{id}',[LocationsController::class, 'edit'])->name('locations.edit');
 
     // Route::get('/dashboard/locations/edit/{id}','App\Http\Controllers\LocationsController@edit')->name('locations.edit');
 
-    Route::get($prefix .'delete',[LocationsController::class, 'delete']);
+    Route::get($prefix .'delete/{id}',[LocationsController::class, 'delete']);
+    Route::get($prefix .'stop/{id}',[LocationsController::class, 'stop']);
 
     Route::post($prefix .'update',[LocationsController::class, 'storeOrUpdate'])->name('locations.update');
 
-    Route::post($prefix . 'action',[LocationsController::class, 'storeOrUpdate'])->name('locations.action');;
+    Route::post($prefix . 'action',[LocationsController::class, 'storeOrUpdate'])->name('locations.action');
 });
