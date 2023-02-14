@@ -17,11 +17,14 @@ class Culture extends Model
         return DB::table('culture_type')->get();
     }
 
-    // public static function getLocationGeo($location_id, $user_id) {
-    //             $locationGeo = DB::table('locations')
-    //                             ->select('type_id', 'lat', 'lon')
-    //                             ->where(['id' => $location_id, 'user_id' => $user_id])
-    //                             ->first();
-    //     return $locationGeo;
-    // }
+    public static function createNew($id, $request) {
+        $culture = new self;
+        $culture->location_id = $id;
+        $culture->fill($request->all());
+        if($culture->save()) {
+            return true;
+        }
+
+        return false;
+    }
 }

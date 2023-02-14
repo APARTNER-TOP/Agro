@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class Location extends Model
 {
@@ -28,5 +29,13 @@ class Location extends Model
         $location = self::findOrFail($id);
         $location->status = 0;
         $location->save();
+    }
+
+    public static function remove($id) {
+        if(DB::table('locations')->where(['user_id' => Auth::user()->id, 'id' => $id])->delete()) {
+            return true;
+        }
+
+        return false;
     }
 }

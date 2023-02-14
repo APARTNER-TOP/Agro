@@ -2,16 +2,6 @@
 
 @section('content')
 
-<!-- <div class="container">
-    {{ Auth::user() }}
-
-    <br>
-    {{ __("You're logged in!") }}
-    <br>
-</div> -->
-
-<br>
-
 <div class="choice">
     <div class="container-fluid">
         @include('components.alerts')
@@ -77,31 +67,5 @@
         </form>
     </div>
 </div>
-
-<br>
-
-@if (count($locations) != 0)
-<div class="container-fluid">
-    <h1>Ваші локації</h1>
-    <ul>
-        @foreach ($locations as $location)
-        <li class="mt-1 mb-1">
-            <img src="/img/locations/{{ $location->type_id}}.png" alt="img" width="20" height="20" class="d-inline-block"/>
-            {{ __('Назва обєкту') }}: {{ $location->company }}
-            {{ __('Адрес') }}: {{ $location->address }}
-
-            <a href="{{ route('add_culture', $location->id) }}" class="btn btn-info">{{ __('Add culture') }}</a>
-
-            <a href="/dashboard/locations/edit/{{ $location->id }}" class="btn btn-success">{{ __('Edit') }}</a>
-            <a href="/dashboard/locations/delete/{{ $location->id }}" class="btn btn-danger">{{ __('Delete') }}</a>
-
-            @if($location->status == 1)
-                <a href="/dashboard/locations/stop/{{ $location->id }}" class="btn btn-warning">{{ __('Stop') }}</a>
-            @endif
-        </li>
-        @endforeach
-    </ul>
-</div>
-@endif
 
 @endsection

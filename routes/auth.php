@@ -90,6 +90,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('locations.create', compact('locationsType'));
     })->name('locations.create');
 
+    Route::get($prefix . 'add_culture/{id}',[LocationsController::class, 'add_culture'])->name('add_culture');
+    Route::post($prefix . 'save_culture/{id}',[LocationsController::class, 'save_culture'])->name('save_culture');
+
     Route::get($prefix . 'edit/{id}',[LocationsController::class, 'edit'])->name('locations.edit');
 
     // Route::get('/dashboard/locations/edit/{id}','App\Http\Controllers\LocationsController@edit')->name('locations.edit');
@@ -97,7 +100,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get($prefix .'delete/{id}',[LocationsController::class, 'delete']);
     Route::get($prefix .'stop/{id}',[LocationsController::class, 'stop']);
 
-    Route::post($prefix .'update',[LocationsController::class, 'storeOrUpdate'])->name('locations.update');
+    Route::post($prefix .'update',[LocationsController::class, 'update'])->name('locations.update');
 
-    Route::post($prefix . 'action',[LocationsController::class, 'storeOrUpdate'])->name('locations.action');
+    Route::post($prefix . 'action',[LocationsController::class, 'store'])->name('locations.action');
 });

@@ -40,7 +40,7 @@
         inputElement.classList.add('mt-1');
         inputElement.classList.add('w-full');
         inputElement.classList.add('form-control');
-        inputElement.value = '{{ old('address') }}';
+        inputElement.value = '{{ $location->address ?? old('address') }}';
 
         containerElement.appendChild(inputElement);
 

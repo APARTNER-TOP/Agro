@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* auto complete */
+
 .autocomplete-container {
     position: relative;
 }
@@ -37,4 +39,13 @@
 .autocomplete-items div:hover {
     background-color: gray;
     color: #fff;
+}
+
+/* style for select */
+.select {
+    min-width: 180px;
+}
+
+.select, input {
+    padding: 8px 12px !important;
 }

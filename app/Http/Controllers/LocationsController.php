@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Location;
 use App\Models\Culture;
+use App\Models\Offer;
 
 class LocationsController extends Controller
 {
@@ -65,9 +66,9 @@ class LocationsController extends Controller
         return view('locations.create');
     }
 
-    public function storeOrUpdate(Request $request)
+    public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'culture_type' => 'required',
             'offer_type' => 'required',
             'type_id' => 'required',
@@ -78,9 +79,6 @@ class LocationsController extends Controller
             'lat' => 'required',
             'lon' => 'required',
         ]);
-
-        // dd($validated);
-        // exit;
 
         $culture_type = $request->input('culture_type');
         $offer_type = $request->input('offer_type');
@@ -94,14 +92,10 @@ class LocationsController extends Controller
         unset($request['price']);
         unset($request['weight']);
 
-        // dd($request);
-
         $location = new Location();
         $location->fill($request);
         $location->user_id = Auth::user()->id;
         $location->save();
-
-        echo $location->id;
 
         if($location->id) {
             Culture::create([
@@ -118,26 +112,79 @@ class LocationsController extends Controller
         return back()->with('error', 'Помилка добавлення локації');
     }
 
+    public function update(Request $request)
+    {
+        // dd($request->all());
+
+        $request->validate([
+            'location_id' => 'required',
+            'type_id' => 'required',
+            'address' => 'required',
+            'company' => 'required',
+            'lat' => 'required',
+            'lon' => 'required',
+        ]);
+
+        $request = $request->all();
+
+        $id = $request['location_id'];
+        $location = Location::find($id);
+        $location->status = 1;
+
+        $location->fill($request);
+        $location->type_id = $request['type_id'];
+        $location->user_id = Auth::user()->id;
+        $location->save();
+
+        if($location->id) {
+            return redirect('/dashboard')->with('success', 'Вітаємо! Локацію успішно оновленно');
+        }
+
+        return back()->with('error', 'Помилка оновлення локації');
+    }
+
     public function edit($id) {
         $location = DB::table('locations')->where(['user_id' => Auth::user()->id, 'id' => $id])->first();
 
-        return view('locations.edit', compact('location', 'id'));
+        $locationsType = Location::getTypes();
+
+        return view('locations.edit', compact('location', 'id', 'locationsType'));
     }
 
     public function delete($id)
     {
-        $success = false;
-
-        if (DB::table('locations')->where(['user_id' => Auth::user()->id, 'id' => $id])->delete()) {
-            $success = true;
+        if(Location::remove($id)) {
+            return back()->with('success', 'Вітаємо! Локація успішно видаленна');
         }
 
-        return back()->with('success', 'Вітаємо! Локація успішно видаленна');
+        return back()->with('error', 'Помилка видалення локації, або вона вже була видалена');
     }
 
     public function stop($id) {
         Location::setDisable($id);
 
-        return back()->with('success', 'Вітаємо! Локація успішно деактивована');
+        return back()->with('success', 'Вітаємо! локація успішно деактивована');
+    }
+
+    public function add_culture($id) {
+        $cultureType = Culture::getTypes();
+        $offerType = Offer::getTypes();
+
+        return view('locations.add_culture', compact('id', 'cultureType','offerType'));
+    }
+
+    public function save_culture(Request $request, $id) {
+        $request->validate([
+            'culture_type' => 'required|string|integer',
+            'offer_type' => 'required|string|integer',
+            'price' => 'required|string|integer',
+            'weight' => 'required|max:100000',
+        ]);
+
+        if(Culture::createNew($id, $request)) {
+            return redirect('dashboard')->with('success', 'Вітаємо! Товар успішно добавлений');
+        }
+
+        return back()->with('error', 'Помилка добавлення товару');
     }
 }
