@@ -81,7 +81,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get($prefix .'search', [LocationsController::class, 'search']);
 
-    Route::get($prefix .'map', [LocationsController::class, 'map']);
+    Route::get($prefix .'map', [LocationsController::class, 'map'])->name('map');
     Route::get($prefix .'map/{type_id}/{id}', [LocationsController::class, 'map']);
 
     Route::get($prefix .'create', function() {

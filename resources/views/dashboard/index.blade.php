@@ -101,6 +101,13 @@
         </li>
         @endforeach
     </ul>
+
+    <div class="row">
+        <a href="{{ route('map') }}" target="_blank" class="btn btn-primary col-auto ml-2">
+            Показати на карті
+        </a>
+    </div>
+
 </div>
 @endif
 

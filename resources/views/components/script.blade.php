@@ -116,7 +116,10 @@
         }
     }
 
-    addressAutocomplete(document.getElementById('address'));
+    if ($('#address').length) {
+        addressAutocomplete(document.getElementById('address'));
+    }
+
 
     //! disable btn send form
     // $('#location_save').change(function() {

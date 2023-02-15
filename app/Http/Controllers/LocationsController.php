@@ -39,7 +39,21 @@ class LocationsController extends Controller
         return view('locations.search', compact('address', 'latitude', 'longitude'));
     }
 
-    public function map($type_id, $id = false) {
+    public function map($type_id = false, $id = false) {
+
+        if(!$type_id && !$id) {
+            //! Culture
+            $cultureType = Culture::getTypes();
+
+            //! Offer
+            $offerType = Offer::getTypes();
+
+            //! LocationType
+            $locationsType = Location::getTypes();
+
+            return view('locations.map_show', compact('cultureType', 'offerType', 'locationsType'));
+        }
+
         $coordinate = explode(',', $id);
         $lat = $lon = false;
         $user_id = Auth::user()->id;
@@ -180,6 +194,10 @@ class LocationsController extends Controller
             'price' => 'required|string|integer',
             'weight' => 'required|max:100000',
         ]);
+
+        if(Auth::user()->id != Location::find($id)->user_id) {
+            return back()->with('error', 'Товар можна добавити тільки у власний обєкт. Даний обєкт не належить вам.');
+        }
 
         if(Culture::createNew($id, $request)) {
             return redirect('dashboard')->with('success', 'Вітаємо! Товар успішно добавлений');
