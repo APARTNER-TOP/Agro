@@ -30,6 +30,7 @@
         display: block;
         position: absolute;
         top: -90px;
+        top: -110px;
         left: 0;
         font-size: 12px;
         font-weight: 500;
