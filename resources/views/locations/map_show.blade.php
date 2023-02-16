@@ -223,7 +223,7 @@
         <div class="filter-wrapper col-3 vh-100">
 
             <!-- error -->
-            <div class="alert alert-danger mt-2">
+            <div class="errors alert alert-danger mt-2">
                 <ul>
                     <!-- render error here -->
                 </ul>
@@ -359,19 +359,20 @@
     }
 </script>
 
+<!-- filter -->
 <script>
 $(function () {
     $('#filter').click(function (e) {
         e.preventDefault();
-        var error = [];
+        var errors = [];
         hideError();
 
         if( $('input[name="offer_type"]').is(':checked') == false) {
-            error.push('Оберіть тип пропозиції');
+            errors.push('Оберіть тип пропозиції');
         }
 
         if($('select[name="culture_type"] option:selected').val() === "") {
-            error.push('Оберіть тип культури');
+            errors.push('Оберіть тип культури');
         }
 
         $('select[name="culture_type]').change(function(){
@@ -379,7 +380,7 @@ $(function () {
             alert("You have selected the country - " + selectedCountry);
         });
 
-        if(error.length != 0) {
+        if(errors.length != 0) {
             error.forEach(showError);
         }
     });
@@ -387,15 +388,15 @@ $(function () {
 
 function showError(item, index) {
     if(!index) {
-        $('.alert-danger').show();
+        $('.errors').show();
     }
 
-    $('ul').append(`<li class="error">${item}</li>`);
+    $('.errors ul').append(`<li class="error">${item}</li>`);
 }
 
 function hideError() {
     $('.error').remove();
-    $('.alert-danger').hide();
+    $('.errors').hide();
 }
 
 </script>
