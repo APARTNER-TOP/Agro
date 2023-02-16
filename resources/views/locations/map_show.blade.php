@@ -381,7 +381,7 @@ $(function () {
         });
 
         if(errors.length != 0) {
-            error.forEach(showError);
+            errors.forEach(showError);
         }
     });
 });
