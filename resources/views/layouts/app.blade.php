@@ -31,5 +31,10 @@
                 {{ $slot }}
             </main>
         </div>
+        <!-- Script -->
+        @include('components.script')
+        @vite(['resources/js/app.js'])
+
+        {!! $copyright !!}
     </body>
 </html>
