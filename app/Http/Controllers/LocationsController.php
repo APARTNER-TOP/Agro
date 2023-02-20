@@ -51,7 +51,10 @@ class LocationsController extends Controller
             //! LocationType
             $locationsType = Location::getTypes();
 
-            return view('locations.map_show', compact('cultureType', 'offerType', 'locationsType'));
+            //! Get all user sell cultures
+            $userSellCultures = Culture::getAllSell(Auth::user()->id);
+
+            return view('locations.map_show', compact('cultureType', 'offerType', 'locationsType', 'userSellCultures'));
         }
 
         $coordinate = explode(',', $id);
