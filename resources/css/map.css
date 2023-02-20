@@ -1,0 +1,211 @@
+/* #map {
+    height: 100vh;
+    width: 80vw;
+} */
+
+/* .wrapper {
+    align-items: center;
+    display: flex;
+} */
+
+/* .wrapper .filter-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+} */
+
+h3 small {
+    display: block;
+    font-size: 12px;
+}
+
+.alert {
+    color: red;
+    display: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.alert.is-visible {
+    display: block;
+}
+
+.tt-menu {
+    border: 1px solid transparent;
+    border-color: transparent lightgrey lightgrey lightgrey;
+    background: white;
+    width: 100%;
+}
+
+.tt-menu .tt-dataset .tt-suggestion {
+    color: darkgrey;
+    cursor: pointer;
+    padding: 1rem;
+    user-select: none;
+}
+
+.tt-menu .tt-dataset .tt-suggestion.tt-cursor:hover {
+    background: lightgrey;
+    color: white;
+}
+
+.tt-menu .tt-dataset .tt-suggestion.tt-cursor+.tt-suggestion {
+    border-top: 1px solid lightgrey;
+}
+
+/* my work */
+
+.gm-style-iw.gm-style-iw-c {
+    width: 150px;
+    height: 150px;
+    background-color: transparent;
+    top: 100px;
+    box-shadow: none !important;
+}
+
+.gm-style-iw.gm-style-iw-c .gm-style-iw-d {
+    height: 100%;
+    overflow: visible !important;
+}
+
+.gm-style-iw.gm-style-iw-c .gm-style-iw-d div {
+    height: 100%;
+}
+
+.gm-style-iw-tc {
+    display: none;
+}
+
+.gm-ui-hover-effect {
+    display: none !important;
+}
+
+/* btn with checkbox */
+.nft-item-category-list input[type=radio]+label {
+    margin: 0.2em 0;
+    cursor: pointer;
+    padding: 0.2em 0;
+    text-align: left;
+    font: normal normal normal 14px/14px Poppins;
+    color: #8E8E93;
+    text-transform: uppercase;
+}
+
+.nft-item-category-list input[type=radio] {
+    display: none;
+}
+
+.nft-item-category-list input[type=radio]+label:before {
+    content: "✓";
+    display: none;
+    width: 1em;
+    height: 1em;
+    padding-left: 0.1em;
+    padding-bottom: 0.10em;
+    margin-right: 0.5em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    color: #000;
+    border-radius: 100%;
+    background-color: #8E8E93;
+}
+
+.nft-item-category-list input[type=radio]+label:active:before {
+    transform: scale(0);
+    color: #000;
+}
+
+.nft-item-category-list input[type=radio]:checked+label:before {
+    background-color: MediumSeaGreen;
+    border-color: MediumSeaGreen;
+    color: #000;
+}
+
+.nft-item-category-list input[type=radio]:disabled+label:before {
+    transform: scale(1);
+    border-color: #aaa;
+}
+
+.nft-item-category-list input[type=radio]:checked:disabled+label:before {
+    transform: scale(1);
+    background-color: #bfb;
+    border-color: #bfb;
+}
+
+.nft-item-category-list input[type=radio]:checked+label {
+    color: #30D158;
+    transition: all .2s linear;
+}
+
+ul.nft-item-categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+    align-items: center;
+}
+
+li.nft-item-category-list label {
+    background: #2C2C2E 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    width: 220px;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li.nft-item-category-list {
+    list-style: none;
+}
+
+/* copyright */
+.copyright {
+    position: absolute;
+    left: 10px;
+    left: 26%;
+    bottom: 40px;
+}
+
+.copyright .link {
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    background-color: yellow;
+    border-radius: 3px;
+    transition: border-radius 1.5s linear;
+    color: blue;
+}
+
+.copyright .link .description {
+    display: block;
+    position: absolute;
+    top: -90px;
+    top: -110px;
+    left: 0;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px;
+    background-color: blue;
+    color: #fff;
+    border-radius: 3px 3px 0 0;
+    transition: all 1.5s linear;
+    opacity: 0;
+}
+
+.copyright .link:hover {
+    border-radius: 0 0 3px 3px;
+    transition: border-radius 1.5s linear;
+}
+
+.copyright .link:hover .description {
+    transition: all 1.5s linear;
+    opacity: 1;
+}
