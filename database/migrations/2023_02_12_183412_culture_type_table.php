@@ -16,18 +16,19 @@ return new class extends Migration
         Schema::create('culture_type', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->string('img')->nullable();
         });
 
         DB::table('culture_type')->insert([
-            ['name' => 'Соя ГМО', 'img' => ''],
-            ['name' => 'Соя не ГМО', 'img' => ''],
-            ['name' => 'Кукурудза', 'img' => ''],
-            ['name' => 'Соняшник', 'img' => ''],
-            ['name' => 'Пшениця', 'img' => ''],
-            ['name' => 'Соняшник ВО', 'img' => ''],
-            ['name' => 'Ячмінь', 'img' => ''],
-            ['name' => 'Ріпак', 'img' => ''],
+            ['name' => 'Соя ГМО', 'slug' => 'soja_hmo', 'img' => '/img/cultures/1.png'],
+            ['name' => 'Соя не ГМО', 'slug' => 'soja_ne_hmo', 'img' => '/img/cultures/2.png'],
+            ['name' => 'Кукурудза', 'slug' => 'kukurudza', 'img' => '/img/cultures/3.png'],
+            ['name' => 'Соняшник', 'slug' => 'sonjasnyk', 'img' => '/img/cultures/4.png'],
+            ['name' => 'Пшениця', 'slug' => 'psenycja', 'img' => '/img/cultures/5.png'],
+            ['name' => 'Соняшник ВО', 'slug' => 'sonjasnyk_vo', 'img' => '/img/cultures/6.png'],
+            ['name' => 'Ячмінь', 'slug' => 'jacmin', 'img' => '/img/cultures/7.png'],
+            ['name' => 'Ріпак', 'slug' => 'ripak', 'img' => '/img/cultures/8.png'],
         ]);
     }
 
