@@ -150,7 +150,7 @@ const json = [];
         "geometry": {
             "type": "Point",
             "coordinates": [
-                "{{ $culture->lat }}",
+                "{{ $culture->lat + rand(900,1000)}}",
                 "{{ $culture->lon }}"
             ]
         }
@@ -321,14 +321,15 @@ const icons = [];
         // 'mouseover'
         // 'mouseout'
 
-        google.maps.event.addListener(markerMap, 'click', (function (marker1, content) {
-            return function () {
-                infowindow.setContent(content);
-                infowindow.open(map, markerMap);
-                // map.panTo(this.getPosition());
-                // map.setZoom(15);
-            }
-        })(markerMap, content));
+        //! click and show
+        // google.maps.event.addListener(markerMap, 'click', (function (marker1, content) {
+        //     return function () {
+        //         infowindow.setContent(content);
+        //         infowindow.open(map, markerMap);
+        //         // map.panTo(this.getPosition());
+        //         // map.setZoom(15);
+        //     }
+        // })(markerMap, content));
     }
 
     function clusterManager(array) {
