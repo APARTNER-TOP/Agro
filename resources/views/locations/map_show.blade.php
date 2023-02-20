@@ -2,221 +2,8 @@
 
 @section('content')
 
-<style>
-    /* copyright */
-    .copyright {
-        position: absolute;
-        left: 10px;
-        left: 26%;
-        bottom: 40px;
-    }
-
-    .copyright .link {
-        display: block;
-        padding: 10px;
-        font-size: 14px;
-        font-weight: 600;
-        font-family: sans-serif;
-        text-decoration: none;
-        position: relative;
-        cursor: pointer;
-        background-color: yellow;
-        border-radius: 3px;
-        transition: border-radius 1.5s linear;
-        color: blue;
-    }
-
-    .copyright .link .description {
-        display: block;
-        position: absolute;
-        top: -90px;
-        top: -110px;
-        left: 0;
-        font-size: 12px;
-        font-weight: 500;
-        padding: 10px;
-        background-color: blue;
-        color: #fff;
-        border-radius: 3px 3px 0 0;
-        transition: all 1.5s linear;
-        opacity: 0;
-    }
-
-    .copyright .link:hover {
-        border-radius: 0 0 3px 3px;
-        transition: border-radius 1.5s linear;
-    }
-
-    .copyright .link:hover .description {
-        transition: all 1.5s linear;
-        opacity: 1;
-    }
-</style>
-
-<style>
-    /* #map {
-        height: 100vh;
-        width: 80vw;
-    } */
-
-    /* .wrapper {
-        align-items: center;
-        display: flex;
-    } */
-
-    /* .wrapper .filter-wrapper {
-        display: flex;
-        flex-direction: column;
-        margin-right: 50px;
-    } */
-
-    h3 small {
-        display: block;
-        font-size: 12px;
-    }
-
-    .alert {
-        color: red;
-        display: none;
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-    .alert.is-visible {
-        display: block;
-    }
-
-    .tt-menu {
-        border: 1px solid transparent;
-        border-color: transparent lightgrey lightgrey lightgrey;
-        background: white;
-        width: 100%;
-    }
-
-    .tt-menu .tt-dataset .tt-suggestion {
-        color: darkgrey;
-        cursor: pointer;
-        padding: 1rem;
-        user-select: none;
-    }
-
-    .tt-menu .tt-dataset .tt-suggestion.tt-cursor:hover {
-        background: lightgrey;
-        color: white;
-    }
-
-    .tt-menu .tt-dataset .tt-suggestion.tt-cursor+.tt-suggestion {
-        border-top: 1px solid lightgrey;
-    }
-
-    /* my work */
-
-    .gm-style-iw.gm-style-iw-c {
-        width: 150px;
-        height: 150px;
-        background-color: transparent;
-        top: 100px;
-        box-shadow: none !important;
-    }
-
-    .gm-style-iw.gm-style-iw-c .gm-style-iw-d {
-        height: 100%;
-        overflow: visible !important;
-    }
-
-    .gm-style-iw.gm-style-iw-c .gm-style-iw-d div {
-        height: 100%;
-    }
-
-    .gm-style-iw-tc {
-        display: none;
-    }
-
-    .gm-ui-hover-effect {
-        display: none !important;
-    }
-
-    /* btn with checkbox */
-    .nft-item-category-list input[type=radio]+label {
-        margin: 0.2em 0;
-        cursor: pointer;
-        padding: 0.2em 0;
-        text-align: left;
-        font: normal normal normal 14px/14px Poppins;
-        color: #8E8E93;
-        text-transform: uppercase;
-    }
-
-    .nft-item-category-list input[type=radio] {
-        display: none;
-    }
-
-    .nft-item-category-list input[type=radio]+label:before {
-        content: "✓";
-        display: none;
-        width: 1em;
-        height: 1em;
-        padding-left: 0.1em;
-        padding-bottom: 0.10em;
-        margin-right: 0.5em;
-        vertical-align: bottom;
-        color: transparent;
-        transition: .2s;
-        color: #000;
-        border-radius: 100%;
-        background-color: #8E8E93;
-    }
-
-    .nft-item-category-list input[type=radio]+label:active:before {
-        transform: scale(0);
-        color: #000;
-    }
-
-    .nft-item-category-list input[type=radio]:checked+label:before {
-        background-color: MediumSeaGreen;
-        border-color: MediumSeaGreen;
-        color: #000;
-    }
-
-    .nft-item-category-list input[type=radio]:disabled+label:before {
-        transform: scale(1);
-        border-color: #aaa;
-    }
-
-    .nft-item-category-list input[type=radio]:checked:disabled+label:before {
-        transform: scale(1);
-        background-color: #bfb;
-        border-color: #bfb;
-    }
-
-    .nft-item-category-list input[type=radio]:checked+label {
-        color: #30D158;
-        transition: all .2s linear;
-    }
-
-    ul.nft-item-categories {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 15px;
-        align-items: center;
-    }
-
-    li.nft-item-category-list label {
-        background: #2C2C2E 0% 0% no-repeat padding-box;
-        border-radius: 5px;
-        width: 220px;
-        height: 41px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    li.nft-item-category-list {
-        list-style: none;
-    }
-</style>
+@vite(['resources/css/map.css'])
+@vite(['resources/js/map.js'])
 
 <div class="container-fluid">
     <div class="row">
@@ -304,24 +91,27 @@
     var lon = "30.314206958382304";
 </script>
 <script>
-    function initMap() {
-        const center = new google.maps.LatLng(lat, lon);
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 7,
-            center: center,
-        });
-        const svgMarker = {
-            path: "M-1.547 12l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM0 0q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-            fillColor: "blue",
-            fillOpacity: 0.6,
-            strokeWeight: 0,
-            rotation: 0,
-            scale: 2,
-            anchor: new google.maps.Point(0, 20),
-        };
-    }
+    // function initMap() {
+    //     var center = new google.maps.LatLng(lat, lon);
+    //     var map = new google.maps.Map(document.getElementById('map'), {
+    //         center: center, // Ukraine
+    //         zoom: 7
+    //     });
 
-    window.initMap = initMap;
+    //     // const svgMarker = {
+    //     //     path: "M-1.547 12l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM0 0q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+    //     //     fillColor: "blue",
+    //     //     fillOpacity: 0.6,
+    //     //     strokeWeight: 0,
+    //     //     rotation: 0,
+    //     //     scale: 2,
+    //     //     anchor: new google.maps.Point(0, 20),
+    //     // };
+
+    // }
+
+    // window.initMap = initMap;
+
 
     // $(document).ready(function () {
     //     $('#map').bind('mousewheel', function (e) {
@@ -336,12 +126,392 @@
     //     });
     // });
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{ env('API_GOOGLEMAP') }}&callback=initMap&v=weekly" defer></script>
 
-<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3"></script> -->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key={{ env('API_GOOGLEMAP') }}&callback=initMap&v=weekly" defer></script> -->
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+
+<!-- maps -->
+<script>
+const json = [];
+
+@foreach($userSellCultures as $culture)
+    json.push({
+        "title": "{{ $culture->name }}",
+        "animal": "fish",
+        "drink": "coca",
+        "id": "{{ $culture->type - 1 }}",
+        "type": "{{ $culture->slug }}",
+        "name": "paul",
+        "currency": "USD",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                "{{ $culture->lat }}",
+                "{{ $culture->lon }}"
+            ]
+        }
+    });
+@endforeach
+
+console.log(json);
+
+//! icons
+const iconBase =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
+
+// const icons = {
+//     'potato': {
+//         icon: iconBase + "parking_lot_maps.png",
+//     },
+// };
+
+const icons = [];
+@foreach($cultureType as $type)
+    icons.push({
+        '{{ $type->slug }}': {
+            icon: 'http://agro.localhost{{ $type->img }}',
+        }
+    });
+@endforeach
+// console.log(icons);
+
+</script>
+<script>
+    // @TODO refactor
+    // TODO make filters work together
+
+    // var json = [
+    //     {
+    //         "title": "Store A",
+    //         "animal": "fish",
+    //         "drink": "coca",
+    //         "type": "potato",
+    //         "name": "paul",
+    //         "currency": "USD",
+    //         "geometry": {
+    //             "type": "Point",
+    //             "coordinates": [
+    //                 0.48339843749999994,
+    //                 46.89023157359399
+    //             ]
+    //         }
+    //     },
+    //     {
+    //         "title": "Store A",
+    //         "animal": "fish",
+    //         "drink": "coca",
+    //         "type": "parking",
+    //         "name": "paul",
+    //         "currency": "EUR",
+    //         "geometry": {
+    //             "type": "Point",
+    //             "coordinates": [
+    //                 0.48339843749999994,
+    //                 46.89023157359399
+    //             ]
+    //         }
+    //     }
+    // ]
+    var jsonStringify = JSON.stringify(json)
+    var jsonParse = JSON.parse(jsonStringify);
+
+    var markers = [];
+    var markerCluster;
+    var searchInput = jQuery('#searchMap input');
+    var filterSelect = jQuery('.filter');
+    var resetButton = jQuery('#resetFilter');
+
+    var filterResults = [];
+    var count_json = json.length;
+
+    for (var i = 0; i < count_json; i++) {
+        var filters = json[i];
+        var filterAnimal = filters.animal;
+        var filterDrink = filters.drink;
+        var filterName = filters.name;
+        var filterCurrency = filters.currency;
+
+        filterResults.push(filterAnimal, filterDrink, filterName, filterCurrency);
+    }
+
+    var filterStringify = JSON.stringify(filterResults)
+    var filterParse = JSON.parse(filterStringify);
+
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 6,
+            center: new google.maps.LatLng(lat, lon)
+        });
+
+        for (var i = 0; i < json.length; i++) {
+            setMarkers(json[i], map);
+        }
+
+        markerCluster = new MarkerClusterer(map, markers, { ignoreHiddenMarkers: true, imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+    }
+
+    function setMarkers(marker, map) {
+        var markerMap = marker.geometry.coordinates;
+        var title = marker.title;
+        var animal = marker.animal;
+        var drink = marker.drink;
+        var name = marker.name;
+        var currency = marker.currency;
+        var pos = new google.maps.LatLng(markerMap[1], markerMap[0]);
+        var content = marker;
+        var type = marker.type;
+        var id = marker.id;
+
+        markerMap = new google.maps.Marker({
+            position: pos,
+            title: title,
+            animal: animal,
+            drink: drink,
+            name: name,
+            currency: currency,
+            map: map,
+            icon: icons[id][type].icon,
+
+            // clickable: true,
+            // title: 'spot',
+            // shape: [0, 0, 0, 0],
+        });
+
+        console.log(markerMap);
+
+        // var CustomMarker;
+        // markerMap = CustomMarker.prototype.draw = function () {
+        //     var me = this;
+        //     // Check if the div has been created.
+        //     var div = this.div_;
+        //     var title = this.title_;
+        //     var latlng = this.latlng_;
+        //     // var cursor = this.cursor_;
+        //     var severitycheck = this.title_;
+        //     var eventT = this.localeventTitle;
+        //     //alert(eventT);
+        //     if (!div) {
+        //         // Create a overlay text DIV
+        //         div = this.div_ = document.createElement('DIV');
+        //         div.id = this.id_;
+        //         div.title = title;
+        //         div.latlng = latlng;
+        //         div.className = 'ring_small_green';
+        //     }
+        // }
+
+
+        markers.push(markerMap);
+
+        var infowindow = new google.maps.InfoWindow({
+            content: title + '<br/>' + animal + '<br/>' + drink + '<br/>' + name + '<br>' + currency + '<img src="2.png" alt="111" class="click" data-id="111" /><br><img src="1.png" alt="111" class="click" data-id="222" />',
+        });
+
+        // Marker click listener
+
+        // 'click'
+        // 'dblclick'
+        // 'mouseup'
+        // 'mousedown'
+        // 'mouseover'
+        // 'mouseout'
+
+        google.maps.event.addListener(markerMap, 'click', (function (marker1, content) {
+            return function () {
+                infowindow.setContent(content);
+                infowindow.open(map, markerMap);
+                // map.panTo(this.getPosition());
+                // map.setZoom(15);
+            }
+        })(markerMap, content));
+    }
+
+    function clusterManager(array) {
+        markerCluster.clearMarkers();
+        if (!array.length) {
+            jQuery('.alert').addClass('is-visible');
+        } else {
+            jQuery('.alert').removeClass('is-visible');
+            for (i = 0; i < array.length; i++) {
+                markerCluster.addMarker(array[i]);
+            }
+        }
+    }
+
+    //@todo add inputsearch
+    function newFilter(filterType1 = 'all', filterType2 = 'all', filterType3 = 'all', filterType4 = 'all') {
+        var criteria = [
+            { Field: "animal", Values: [filterType1] },
+            { Field: "drink", Values: [filterType2] },
+            { Field: "name", Values: [filterType3] },
+            { Field: "currency", Values: [filterType4] },
+            // { Field: ["animal", "name", "drink"], Values: [filterTyped] }
+        ];
+
+        var filtered = markers.flexFilter(criteria);
+        clusterManager(filtered);
+    }
+
+    Array.prototype.flexFilter = function (info) {
+        // Set our variables
+        var matchesFilter, matches = [], count;
+
+        // Helper function to loop through the filter criteria to find matching values
+        // Each filter criteria is treated as "AND". So each item must match all the filter criteria to be considered a match.
+        // Multiple filter values in a filter field are treated as "OR" i.e. ["Blue", "Green"] will yield items matching a value of Blue OR Green.
+        matchesFilter = function (item) {
+            count = 0
+            for (var n = 0; n < info.length; n++) {
+                if (info[n]["Values"].indexOf(item[info[n]["Field"]]) > -1) {
+                    count++;
+                }
+                //if value = all, return all item
+                else if (info[n]["Values"] == "all") {
+                    count++;
+                }
+            }
+            // If TRUE, then the current item in the array meets all the filter criteria
+            return count == info.length;
+        }
+
+        // Loop through each item in the array
+        for (var i = 0; i < this.length; i++) {
+            // Determine if the current item matches the filter criteria
+            if (matchesFilter(this[i])) {
+                matches.push(this[i]);
+            }
+        }
+
+        // Give us a new array containing the objects matching the filter criteria
+        return matches;
+    }
+
+
+
+    jQuery(document).ready(function () {
+        jQuery('.filter-animal').on('change', function () {
+            var filter2 = jQuery('.filter-drink').val();
+            var filter3 = jQuery('.filter-name').val();
+            var filter4 = jQuery('.filter-currency').val();
+            newFilter(jQuery(this).val(), filter2, filter3, filter4);
+        });
+
+        jQuery('.filter-drink').on('change', function () {
+            var filter1 = jQuery('.filter-animal').val();
+            var filter3 = jQuery('.filter-name').val();
+            var filter4 = jQuery('.filter-currency').val();
+            newFilter(filter1, jQuery(this).val(), filter3, filter4);
+        });
+
+        jQuery('.filter-name').on('change', function () {
+            var filter1 = jQuery('.filter-animal').val();
+            var filter2 = jQuery('.filter-drink').val();
+            var filter4 = jQuery('.filter-currency').val();
+            newFilter(filter1, filter2, jQuery(this).val(), filter4);
+        });
+
+        jQuery('.filter-currency').on('change', function () {
+            var filter1 = jQuery('.filter-animal').val();
+            var filter2 = jQuery('.filter-drink').val();
+            var filter3 = jQuery('.filter-name').val();
+            newFilter(filter1, filter2, filter3, jQuery(this).val());
+        });
+
+        searchInput.on('keyup', function () {
+            var searchTyped = $(this).val();
+            var arr = [];
+            if (searchTyped.length > 0) {
+                jsonParse.filter(function () {
+                    for (i = 0; i < json.length; i++) {
+                        marker = markers[i];
+                        var markerFilter = [];
+                        var filterAnimal = marker.animal;
+                        var filterDrink = marker.drink;
+                        var filterName = marker.name;
+                        var filterCurrency = marker.currency;
+
+                        markerFilter.push(filterAnimal, filterDrink, filterName, filterV);
+                        var markerFilterStringify = JSON.stringify(markerFilter);
+                        if (markerFilterStringify.indexOf(searchTyped) >= 0) {
+                            arr.push(marker);
+                        } else {
+                            console.log('dont fit requirement')
+                        }
+                    }
+                });
+                clusterManager(arr);
+            } else {
+                newFilter();
+            }
+        });
+
+        resetButton.on('click', function () {
+            searchInput.val('');
+            filterSelect.val('all');
+            newFilter();
+        });
+
+        //delete all duplicated value from the previous array
+        var uniqueValue = [];
+        jQuery.each(filterResults, function (i, el) {
+            if (jQuery.inArray(el, uniqueValue) === -1) {
+                uniqueValue.push(el);
+            }
+        });
+
+        var substringMatcher = function (strs) {
+            return function findMatches(q, cb) {
+                var matches, substringRegex;
+                matches = [];
+
+                substrRegex = new RegExp(q, 'i');
+
+                jQuery.each(strs, function (i, str) {
+                    if (substrRegex.test(str)) {
+                        matches.push(str);
+                    }
+                });
+                cb(matches);
+            };
+        };
+        searchInput.typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        },
+            {
+                name: 'customFilter',
+                source: substringMatcher(uniqueValue)
+            });
+
+    });
+
+    $ = jQuery;
+    $(window).on('load', function () {
+        initMap();
+    });
+
+
+    // //! custom code
+
+    // $('body').on('click', '.click', function () {
+    //     alert($(this).data('id'));
+    // });
+
+    // setInterval(() => {
+    //     document.querySelectorAll('[role="button"]').forEach(function (el) {
+    //         el.classList.add('active');
+    //         $('.active:not(".afterClick")').trigger("click");
+    //         $('.active').addClass('afterClick');
+    //     });
+    // }, 1000);
+</script>
+
 
 <!-- copyright -->
 <script>
