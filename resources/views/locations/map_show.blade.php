@@ -140,7 +140,7 @@ const json = [];
 
 @foreach($userSellCultures as $culture)
     json.push({
-        "title": "{{ $culture->name }}",
+        "title1": "{{ $culture->name }}",
         "animal": "fish",
         "drink": "coca",
         "id": "{{ $culture->type - 1 }}",
@@ -150,7 +150,7 @@ const json = [];
         "geometry": {
             "type": "Point",
             "coordinates": [
-                "{{ $culture->lat + rand(900,1000)}}",
+                "{{ $culture->lat }}",
                 "{{ $culture->lon }}"
             ]
         }
@@ -252,7 +252,8 @@ const icons = [];
             setMarkers(json[i], map);
         }
 
-        markerCluster = new MarkerClusterer(map, markers, { ignoreHiddenMarkers: true, imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+        //! cluster
+        // markerCluster = new MarkerClusterer(map, markers, { ignoreHiddenMarkers: true, imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
     }
 
     function setMarkers(marker, map) {
@@ -262,7 +263,7 @@ const icons = [];
         var drink = marker.drink;
         var name = marker.name;
         var currency = marker.currency;
-        var pos = new google.maps.LatLng(markerMap[1], markerMap[0]);
+        var pos = new google.maps.LatLng(markerMap[0], markerMap[1]);
         var content = marker;
         var type = marker.type;
         var id = marker.id;
@@ -282,7 +283,7 @@ const icons = [];
             // shape: [0, 0, 0, 0],
         });
 
-        console.log(markerMap);
+        // console.log(markerMap);
 
         // var CustomMarker;
         // markerMap = CustomMarker.prototype.draw = function () {

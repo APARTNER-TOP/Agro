@@ -40,7 +40,7 @@
         inputElement.classList.add('mt-1');
         inputElement.classList.add('w-full');
         inputElement.classList.add('form-control');
-        inputElement.value = '{{ $location->address ?? old('address') }}';
+        inputElement.value = @if(request()->routeIs('dashboard')) '{{ old('address') }}'; @else '{{ $location->address ?? old('address') }}' @endif
 
         containerElement.appendChild(inputElement);
 
