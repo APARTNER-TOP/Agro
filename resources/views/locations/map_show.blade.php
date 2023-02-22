@@ -127,9 +127,9 @@
     // });
 </script>
 
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key={{ env('API_GOOGLEMAP') }}&callback=initMap&v=weekly" defer></script> -->
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('API_GOOGLEMAP') }}&callback=initMap&v=weekly" defer></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3"></script> -->
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
