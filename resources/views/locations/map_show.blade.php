@@ -173,7 +173,7 @@ const icons = [];
 @foreach($cultureType as $type)
     icons.push({
         '{{ $type->slug }}': {
-            icon: 'http://agro.localhost{{ $type->img }}',
+            icon: '{{ $type->img }}',
         }
     });
 @endforeach
